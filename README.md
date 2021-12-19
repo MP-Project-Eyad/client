@@ -30,19 +30,19 @@ Each restaurant has own category.
 
 # Router Routes
 
-| Path | Component | Permissions | Behavior | 
-| ---         |     ---      |          --- |          --- |
-| `/`   | Hoem     | Public    | Home page, Contant all Restaurant   | 
-| `/login`     | Login       |Public     | Register & login Page    |
-| `/signUp`    | Register       |Public     | Register & login Page    |
-| `/offers`     | Offers       |Public     | offers Page    |
-| `/vAccount/id`     | VAccount       |Private     | Verify Account Page    |
-| `/resetpass`     | ResetPassword       |Private     | Reset Password  Page.    |
-| `/cart`     | Cart       |Private     | Your cart  Page    |
-| `/order`     | Order       |Private     | after you proccess your order and confirme it page    |
-| `/Profile`     | Profile       |Private     | Profile Page, that contant personal information    |
-| `/additem`     | CRUDItem       |Private, only Company     | CRUD Item Page, that company can add item to there Restaurant, and you can delete that Item    |
-| `/edititem`     | CRUDItem       |Private, only Company     | CRUD Item Page, that company can edit item to there Restaurant    |
+| Path | Component | Public Or Private  | Behavior | Permissions | 
+| ---         |     ---      |          --- |          --- |          --- |
+| `/`   | Hoem     | Public    | Home page, Contant all Restaurant   | User , Admin, Company
+| `/login`     | Login       |Public     | Register & login Page    | User , Admin, Company
+| `/signUp`    | Register       |Public     | Register & login Page    |User , Admin, Company
+| `/offers`     | Offers       |Public     | offers Page    | User , Admin, Company
+| `/vAccount/id`     | VAccount       |Private     | Verify Account Page    | User , Admin, Company
+| `/resetpass`     | ResetPassword       |Private     | Reset Password  Page.    |User , Company
+| `/cart`     | Cart       |Private     | Your cart  Page    |User
+| `/order`     | Order       |Private     | after you proccess your order and confirme it page    | User
+| `/Profile`     | Profile       |Private     | Profile Page, that contant personal information    | User , Admin, Company
+| `/additem`     | CRUDItem       |Private, only Company     | CRUD Item Page, that company can add item to there Restaurant, and you can delete that Item    |Company
+| `/edititem`     | CRUDItem       |Private, only Company     | CRUD Item Page, that company can edit item to there Restaurant    | Company
 
 # Components
 - Login.
