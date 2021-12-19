@@ -32,13 +32,13 @@ Each restaurant has own category.
 
 | Path | Component | Permissions | Behavior | 
 | ---         |     ---      |          --- |          --- |
-| /   | Hoem     | Public    | Home page, Contant all Restaurant   | 
+| `/`   | Hoem     | Public    | Home page, Contant all Restaurant   | 
 | `/login`     | Login       |Public     | Register & login Page    |
-| /signUp     | Register       |Public     | Register & login Page    |
-| /offers     | Offers       |Public     | offers Page    |
-| /vAccount     | VAccount       |Private     | Verify Account Page    |
-| /cart     | Cart       |Private     | Your cart  Page    |
-| /order     | Order       |Private     | after you proccess your order and confirme it page    |
+| `/signUp`    | Register       |Public     | Register & login Page    |
+| `/offers`     | Offers       |Public     | offers Page    |
+| `/vAccount`     | VAccount       |Private     | Verify Account Page    |
+| `/cart`     | Cart       |Private     | Your cart  Page    |
+| `/order`     | Order       |Private     | after you proccess your order and confirme it page    |
 
 
 
