@@ -51,6 +51,13 @@ Each restaurant has own category.
 # UML-Digram
 ![This is an image](./UMLF.png)
 
+# Upload our Work on github:
+
+| Command | Description |
+| --- | --- |
+| git add . | add our work  |
+| git commit | add comment before upload it staged 
+| git push | Upload it to your github Repo
 
 # WireFrame
 ### Main Page
@@ -67,3 +74,9 @@ Each restaurant has own category.
 ### Your Cart
 
 ![This is an image](./WF4.png)
+
+# Links:
+
+1. Link to Trello board => https://trello.com/b/0o0jzsX9/mp-project-eyad
+
+2. My github Page => https://github.com/Eyad911
