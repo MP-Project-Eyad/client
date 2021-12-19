@@ -44,6 +44,16 @@ Each restaurant has own category.
 | `/additem`     | CRUDItem       |Private, only Company     | CRUD Item Page, that company can add item to there Restaurant, and you can delete that Item    |
 | `/edititem`     | CRUDItem       |Private, only Company     | CRUD Item Page, that company can edit item to there Restaurant    |
 
+# Components
+- Login.
+- Register
+- Offers
+- VAccount
+- ResetPassword
+- Cart
+- Order
+- Profile
+- CRUDItem
 
 
 
