@@ -36,9 +36,15 @@ Each restaurant has own category.
 | `/login`     | Login       |Public     | Register & login Page    |
 | `/signUp`    | Register       |Public     | Register & login Page    |
 | `/offers`     | Offers       |Public     | offers Page    |
-| `/vAccount`     | VAccount       |Private     | Verify Account Page    |
+| `/vAccount/id`     | VAccount       |Private     | Verify Account Page    |
+| `/resetpass`     | ResetPassword       |Private     | Reset Password  Page.    |
 | `/cart`     | Cart       |Private     | Your cart  Page    |
 | `/order`     | Order       |Private     | after you proccess your order and confirme it page    |
+| `/Profile`     | Profile       |Private     | Profile Page, that contant personal information    |
+| `/additem`     | CRUDItem       |Private, only Company     | CRUD Item Page, that company can add item to there Restaurant, and you can delete that Item    |
+| `/edititem`     | CRUDItem       |Private, only Company     | CRUD Item Page, that company can edit item to there Restaurant    |
+
+
 
 
 
