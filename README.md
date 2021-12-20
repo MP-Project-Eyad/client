@@ -85,6 +85,12 @@ Each restaurant has own category.
 
 ![This is an image](./WF4.png)
 
+### Register
+![This is an image](./WF5.png)
+
+### Login
+![This is an image](./WF6.png)
+
 # Links:
 
 1. Link to Trello board => https://trello.com/b/0o0jzsX9/mp-project-eyad
