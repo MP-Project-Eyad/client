@@ -90,6 +90,8 @@ Each restaurant has own category.
 
 ### Login
 ![This is an image](./WF6.png)
+### Verify Account
+![This is an image](./WF7.png)
 
 # Links:
 
