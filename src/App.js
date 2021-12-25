@@ -1,13 +1,17 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-require("dotenv").config();
+import Signup from "./components/Signup"
+
+
 
 const App = () => {
   return (
     <>
       <Routes>
-       
+        <Route exact path="/" element={<Signup />} />
+  
+        
         
       </Routes>
     </>
