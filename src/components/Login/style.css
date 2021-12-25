@@ -14,11 +14,11 @@ main.panel {
   box-shadow: 0 2px 5px -6px #697a79, 0 0 30px -50px #697a79;
   display: flex;
 }
-.login-with-google-btn{
+.login-with-google-btn {
   margin-left: 60px;
   margin-bottom: 15px;
 }
-.input{
+.input {
   margin-left: 50px;
 }
 main.panel .panel__half {
@@ -36,16 +36,12 @@ main.panel h2 {
   text-transform: capitalize;
   margin-bottom: 1rem;
   margin-left: 10px;
-
-
 }
-.signUpDiv{
+.signUpDiv {
   margin-left: 80px;
   border-left: 2px solid black;
   padding-left: 170px;
-  
 }
-
 
 main.panel p {
   font-family: "Outfit", sans-serif;
@@ -131,8 +127,8 @@ main.panel #signupButton {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
-.gotosignUp{
-  margin-left:1000px
+.gotosignUp {
+  margin-left: 1000px;
 }
 .login-with-google-btn {
   transition: background-color 0.3s, box-shadow 0.3s;
@@ -203,10 +199,10 @@ main.panel #signupButton {
   background-color: #eea38e;
   cursor: pointer;
 }
-#signupButton:hover{
+#signupButton:hover {
   cursor: pointer;
 }
-#submitButton:hover{
+#submitButton:hover {
   cursor: pointer;
 }
 

@@ -6,7 +6,7 @@ import { Loginn } from "./../../reducers/Login";
 import "./style.css";
 
 const popupTools = require("popup-tools");
-
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -20,17 +20,17 @@ const Login = () => {
       token: state.Login.token,
     };
   });
-console.log(state);
+  console.log(state);
   const login = async () => {
     setMessage("");
     try {
-      const res = await axios.post(`http://localhost:5000/login`, {
-        email:emilOrUserName ,
+      const res = await axios.post(`${BASE_URL}/login`, {
+        email: emilOrUserName,
         password,
-        userName:emilOrUserName
+        userName: emilOrUserName,
       });
       console.log(res.data.result.role);
-      dispatch( Loginn({ role: res.data.result.role, token: res.data.token }));
+      dispatch(Loginn({ role: res.data.result.role, token: res.data.token }));
       navigate("/");
     } catch (error) {
       setMessage(error.response.data.message);
@@ -39,14 +39,15 @@ console.log(state);
 
   const googleLogin = () => {
     popupTools.popup(
-      `http://localhost:5000/auth/google`,
+      `${BASE_URL}/auth/google`,
       "Google Login",
       { width: 400, height: 600 },
       function (err, user) {
         if (err) {
           console.log(err);
         } else {
-          dispatch( Loginn({
+          dispatch(
+            Loginn({
               role: user.data.result.role,
               token: user.data.token,
             })
@@ -61,8 +62,8 @@ console.log(state);
     <div className="loginWrapper">
       {state.token ? (
         <>
-          <div >
-            <div >
+          <div>
+            <div>
               <p>You already loggedin, you don't need to login</p>
             </div>
             <div>
@@ -106,8 +107,15 @@ console.log(state);
           </div>
           <div className="signUpDiv">
             <h2 className="gotosignUp">Hello, friend!</h2>
-            <p className="gotosignUp">if you haven't registered yet, sign up to receive our weekly offers</p>
-            <button className="gotosignUp" id="signupButton" onClick={() => navigate("/signup")}>
+            <p className="gotosignUp">
+              if you haven't registered yet, sign up to receive our weekly
+              offers
+            </p>
+            <button
+              className="gotosignUp"
+              id="signupButton"
+              onClick={() => navigate("/signup")}
+            >
               Sign up
             </button>
           </div>
