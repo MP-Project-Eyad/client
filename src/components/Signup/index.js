@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import PasswordChecklist from "react-password-checklist";
 import axios from "axios";
 import "./style.css";
-
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 const Signup = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
@@ -20,7 +20,7 @@ const Signup = () => {
 
   const signup = async () => {
     setMessage("");
-    const res = await axios.post(`http://localhost:5000/signUp`, {
+    const res = await axios.post(`${BASE_URL}/signUp`, {
       userName: username,
       email: email,
       password: password,
