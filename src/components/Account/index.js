@@ -23,13 +23,20 @@ const Account = () => {
             code,
           }
         );
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Your account has been verified',
+          showConfirmButton: false,
+          timer: 1500
+        })
         navigate("/login");
       } catch (error) {
         MySwal.fire({
           icon: "error",
           title: "Oops...",
           text: "Something went wrong!, please try again.",
-          confirmButtonColor: "#E07A5F",
+          confirmButtonColor: "black",
         });
       }
     }
