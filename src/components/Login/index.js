@@ -4,7 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { Loginn } from "./../../reducers/Login";
 import "./style.css";
+import withReactContent from "sweetalert2-react-content";
+import Swal from "sweetalert2";
 
+
+const MySwal = withReactContent(Swal);
 const popupTools = require("popup-tools");
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 const Login = () => {
@@ -58,6 +62,37 @@ const Login = () => {
     );
   };
 
+  const forgotPassword = async () => {
+    const { value: email } = await MySwal.fire({
+      title: "Forgot Password",
+      input: "email",
+      inputPlaceholder: "Enter your email address",
+      showCancelButton: true,
+      confirmButtonColor: "#E07A5F",
+      cancelButtonText: "Cancel",
+      reverseButtons: true,
+    });
+
+    if (email) {
+      try {
+        await axios.post(`${process.env.REACT_APP_BASE_URL}/email_check`, {
+          email,
+        });
+        MySwal.fire({
+          icon: "success",
+          text: "Check your email to reset the password",
+          confirmButtonColor: "#E07A5F",
+        });
+      } catch (error) {
+        MySwal.fire({
+          icon: "error",
+          text: "Something went wrong!",
+          confirmButtonColor: "#E07A5F",
+        });
+      }
+    }
+  };
+
   return (
     <div className="loginWrapper">
       {state.token ? (
@@ -95,6 +130,9 @@ const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
+              <p className="forgotPassword" onClick={forgotPassword}>
+                forgot your password?
+              </p>
               <input id="submitButton" type="submit" value="Submit" />
             </form>
             <button
