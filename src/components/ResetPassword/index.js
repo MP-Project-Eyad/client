@@ -23,6 +23,13 @@ const ResetPassword = () => {
           code,
           password,
         });
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Your password has been reset ',
+          showConfirmButton: false,
+          timer: 1500
+        })
         navigate("/login");
       } catch (error) {
         MySwal.fire({

@@ -99,7 +99,7 @@ main.panel #signupButton {
 }
 
 .panel__half.half--first #submitButton {
-  background: #e07a5f;
+  background: #ffff;
   color: white;
 }
 
@@ -204,6 +204,7 @@ main.panel #signupButton {
 }
 #submitButton:hover {
   cursor: pointer;
+  
 }
 
 @media (max-width: 650px) {

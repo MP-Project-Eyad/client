@@ -2,9 +2,13 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import PasswordChecklist from "react-password-checklist";
+import withReactContent from "sweetalert2-react-content";
 import axios from "axios";
+import Swal from "sweetalert2";
+
 import "./style.css";
 const BASE_URL = process.env.REACT_APP_BASE_URL;
+const MySwal = withReactContent(Swal);
 const Signup = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
@@ -27,7 +31,13 @@ const Signup = () => {
       
     });
     if (res.status === 201) {
-      window.alert("you will receive a confirmation email")
+      MySwal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'You will receive a confirmation email ',
+        showConfirmButton: false,
+        timer: 1500
+      })
       navigate("/login");
     } else {
       setMessage(res.data.message);
