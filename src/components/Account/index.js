@@ -29,7 +29,7 @@ const Account = () => {
           icon: "error",
           title: "Oops...",
           text: "Something went wrong!, please try again.",
-          confirmButtonColor: "#E07A5F",
+          confirmButtonColor: "black",
         });
       }
     }

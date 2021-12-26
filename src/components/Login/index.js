@@ -35,9 +35,22 @@ const Login = () => {
       });
       console.log(res.data.result.role);
       dispatch(Loginn({ role: res.data.result.role, token: res.data.token }));
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Logged in successfully ',
+        showConfirmButton: false,
+        timer: 1500
+      })
       navigate("/");
     } catch (error) {
       setMessage(error.response.data.message);
+      MySwal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Wrong email or password, please try again.",
+        confirmButtonColor: "black",
+      });
     }
   };
 
@@ -68,26 +81,26 @@ const Login = () => {
       input: "email",
       inputPlaceholder: "Enter your email address",
       showCancelButton: true,
-      confirmButtonColor: "#E07A5F",
+      confirmButtonColor: "black",
       cancelButtonText: "Cancel",
       reverseButtons: true,
     });
 
     if (email) {
       try {
-        await axios.post(`${process.env.REACT_APP_BASE_URL}/email_check`, {
+        await axios.post(`${BASE_URL}/email_check`, {
           email,
         });
         MySwal.fire({
           icon: "success",
           text: "Check your email to reset the password",
-          confirmButtonColor: "#E07A5F",
+          confirmButtonColor: "black",
         });
       } catch (error) {
         MySwal.fire({
           icon: "error",
           text: "Something went wrong!",
-          confirmButtonColor: "#E07A5F",
+          confirmButtonColor: "black",
         });
       }
     }
