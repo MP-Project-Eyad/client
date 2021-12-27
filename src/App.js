@@ -5,6 +5,7 @@ import Signup from "./components/Signup"
 import Login from "./components/Login"
 import Account  from "./components/Account"
 import ResetPassword from "./components/ResetPassword";
+import Restaurant from "./components/Restaurant";
 
 
 
@@ -12,6 +13,7 @@ const App = () => {
   return (
     <>
       <Routes>
+      <Route exact path="/" element={<Restaurant />} />
         <Route exact path="/signup" element={<Signup />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/verifyAccount/:id" element={<Account />} />
