@@ -39,8 +39,9 @@ const Signup = () => {
         timer: 1500
       })
       navigate("/login");
-    } else {
+    } else  {
       setMessage(res.data.message);
+
     }
   };
 

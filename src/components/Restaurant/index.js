@@ -15,11 +15,13 @@ import {
   Input,
   SimpleGrid,
 } from "@chakra-ui/react";
+import Offer from "./Offer"
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 const Restaurant = () => {
   const [restaurants, setRestaurants] = useState([]);
-  const [restaurant, setRestaurant] = useState("");
+  
+  
 
   const [local, setLocal] = useState("");
   const navigate = useNavigate();
@@ -46,6 +48,12 @@ const Restaurant = () => {
       console.log(error);
     }
   };
+  //   const handleClick = (id) => {
+  //     setVisible(!visible )
+  //     console.log(visible);
+  //   }
+
+ 
 
   //   const logOut =()=>{
 
@@ -72,45 +80,9 @@ const Restaurant = () => {
           </VStack>
           <SimpleGrid padding="3rem" columns={3} spacing={10}>
             {restaurants.map((item, i) => (
-              <>
-                <VStack className="mainDiv">
-                  <Box
-                    border="1px solid #222"
-                    textAlign="center"
-                    padding="20px"
-                    borderRadius="7"
-                  >
-                    <Text
-                      fontSize="2rem"
-                      fontFamily="Hardware"
-                      key={`desc-${item._id}`}
-                    >
-                      {item.Name}
-                    </Text>
-
-                    <Text key={`img-${item._id}`}>
-                      <Image
-                        borderRadius="full"
-                        boxSize="300px"
-                        src={item.Picture}
-                        alt="Dan Abramov"
-                      />
-                    </Text>
-                    <Button
-                      mt="6"
-                      ml="170"
-                      bg="#222"
-                      color="white"
-                      _hover={{
-                        background: "white",
-                        color: "black",
-                      }}
-                    >
-                      Show Offers
-                    </Button>
-                  </Box>
-                </VStack>
-              </>
+            
+                <Offer resturant={item} key={i}/>
+              
             ))}
           </SimpleGrid>
         </Box>
