@@ -20,7 +20,7 @@ import {
 
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
-const Combo = () => {
+const Sandwich = () => {
   const [menu, setMenu] = useState([]);
  
   const { id } = useParams();
@@ -41,7 +41,7 @@ const navigate = useNavigate();
     try {
       const result = await axios.get(`${BASE_URL}/item/${id}`);
       //  resturantId = result.data.map((item,i) => item.RestaurantName._id )
-      setMenu(result.data.filter((item,i) => item.Category == "COMBO"));
+      setMenu(result.data.filter((item,i) => item.Category === "COMBO"));
 
       console.log(result.data);
     } catch (error) {
@@ -112,6 +112,7 @@ const navigate = useNavigate();
                 pt="5"
                 fontSize="3xl"
                 textAlign="center"
+                onClick={() => navigate(`/sandwich/${id}`)}
                 _hover={{
                   boxShadow:'outline',
                   cursor:"pointer"
@@ -199,4 +200,4 @@ const navigate = useNavigate();
   );
 };
 
-export default Combo;
+export default Sandwich;
