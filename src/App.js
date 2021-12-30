@@ -8,6 +8,7 @@ import ResetPassword from "./components/ResetPassword";
 import Restaurant from "./components/Restaurant";
 import Nav from "./components/Nav"
 import  Menu  from "./components/Menu/Menu";
+import Combo from "./components/COMBO";
 
 
 
@@ -18,6 +19,7 @@ const App = () => {
       <Routes>
       <Route exact path="/" element={<Restaurant />} />
       <Route exact path="/item/:id" element={<Menu />} />
+      <Route exact path="/combo/:id" element={<Combo />} />
         <Route exact path="/signup" element={<Signup />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/verifyAccount/:id" element={<Account />} />
