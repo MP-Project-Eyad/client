@@ -1,9 +1,9 @@
 import React,{useState,useEffect} from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import {
   Box,
   Text,
-  Link,
   VStack,
   Button,
   Image,
@@ -17,7 +17,7 @@ const BASE_URL = process.env.REACT_APP_BASE_URL;
 export default function Offer(resturant) {
     const [offers, setOffers] = useState([]);
   const [visible, setVisible] = useState(false);
-  console.log(resturant,"resturant");
+//   console.log(resturant,"resturant");
 
     const getOffers = async (id) => {
         try {
@@ -72,6 +72,7 @@ export default function Offer(resturant) {
       </Button>
     </Box>
     {visible && offers.map((element, i) => (
+        <Link to={`/item/${resturant.resturant._id}`}>
         <Box
           border="2px solid black"
           w="97%"
@@ -81,6 +82,7 @@ export default function Offer(resturant) {
           <Text key={`T1-${i}`}>{element.CompanyOffer.Name}</Text>
           <Text key={`T2-${i}`}>{element.DeliveryPrice} SR</Text>
         </Box>
+        </Link>
       ))}
   </VStack>)
 }

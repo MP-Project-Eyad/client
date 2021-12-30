@@ -16,6 +16,8 @@ import {
   SimpleGrid,
 } from "@chakra-ui/react";
 import Offer from "./Offer"
+import Menu from "../Menu/Menu"
+
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 const Restaurant = () => {
@@ -80,9 +82,10 @@ const Restaurant = () => {
           </VStack>
           <SimpleGrid padding="3rem" columns={3} spacing={10}>
             {restaurants.map((item, i) => (
-            
+            <>
                 <Offer resturant={item} key={i}/>
-              
+               
+              </>
             ))}
           </SimpleGrid>
         </Box>

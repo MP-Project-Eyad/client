@@ -23,26 +23,39 @@ const Signup = () => {
   });
 
   const signup = async () => {
-    setMessage("");
-    const res = await axios.post(`${BASE_URL}/signUp`, {
-      userName: username,
-      email: email,
-      password: password,
+    try {
+      setMessage("");
+      const res = await axios.post(`${BASE_URL}/signUp`, {
+        userName: username,
+        email: email,
+        password: password,
+        
+      });
       
-    });
-    if (res.status === 201) {
+        MySwal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'You will receive a confirmation email ',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        navigate("/login");
+      
+      
+    } catch (error) {
       MySwal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'You will receive a confirmation email ',
-        showConfirmButton: false,
-        timer: 1500
-      })
-      navigate("/login");
-    } else  {
-      setMessage(res.data.message);
-
+        icon: "error",
+        title: "Oops...",
+        // iconColor:"blue",
+        text: "Email already exist!",
+        confirmButtonColor: "black",
+      });
+      // setMessage(res.data.message);
     }
+   
+      
+
+  
   };
 
   return (
