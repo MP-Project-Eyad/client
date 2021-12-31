@@ -115,7 +115,7 @@ const Login = () => {
               <p>You already loggedin, you don't need to login</p>
             </div>
             <div>
-              <button onClick={() => navigate("/home")}>home</button>
+              <button onClick={() => navigate("/")}>home</button>
             </div>
           </div>
         </>

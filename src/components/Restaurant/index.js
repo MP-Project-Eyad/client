@@ -17,6 +17,7 @@ import {
 } from "@chakra-ui/react";
 import Offer from "./Offer"
 import Menu from "../Menu/Menu"
+import Gallary from "../Gallary"
 
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
@@ -66,10 +67,10 @@ const Restaurant = () => {
   //   }
 
   return (
+    
     <ChakraProvider>
       <div className="restWrapper">
-        <Box>
-          <VStack>
+      <VStack>
             <Input
               textAlign="center"
               width="80"
@@ -80,6 +81,9 @@ const Restaurant = () => {
               color="white"
             />
           </VStack>
+      <Gallary/>
+        <Box>
+          
           <SimpleGrid padding="3rem" columns={3} spacing={10}>
             {restaurants.map((item, i) => (
             <>

@@ -17,15 +17,15 @@ import {
   Grid,
   GridItem,
 } from "@chakra-ui/react";
-import Menu1 from "./Menu1";
+
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
-const Menu = (resturant1) => {
+const Sandwich = () => {
   const [menu, setMenu] = useState([]);
-  const [menu1, setMenu1] = useState([]);
+ 
   const { id } = useParams();
   // console.log(id,"resturant");
- const navigate = useNavigate();
+const navigate = useNavigate();
 
   const [local, setLocal] = useState("");
 
@@ -41,9 +41,9 @@ const Menu = (resturant1) => {
     try {
       const result = await axios.get(`${BASE_URL}/item/${id}`);
       //  resturantId = result.data.map((item,i) => item.RestaurantName._id )
-      setMenu(result.data);
+      setMenu(result.data.filter((item,i) => item.Category === "COMBO"));
 
-      // console.log(result.data);
+      console.log(result.data);
     } catch (error) {
       console.log(error);
     }
@@ -72,7 +72,6 @@ const Menu = (resturant1) => {
             border="1px solid"
           >
             <SimpleGrid columns={5} spacing={10}>
-              
             <Box
            
               boxShadow='base' p='6' rounded='md'
@@ -91,11 +90,11 @@ const Menu = (resturant1) => {
               <Box
               boxShadow='base' p='6' rounded='md'
                 ml="2"
+                onClick={() => navigate(`/combo/${id}`)}
                 bg="#FFFAF0"
                 height="80px"
                 padding="1"
                 pt="5"
-                onClick={() => navigate(`/combo/${id}`)}
                 fontSize="3xl"
                 textAlign="center"
                 _hover={{
@@ -113,7 +112,7 @@ const Menu = (resturant1) => {
                 pt="5"
                 fontSize="3xl"
                 textAlign="center"
-                onClick={()=>navigate(`/sandwich/${id}`)}
+                onClick={() => navigate(`/sandwich/${id}`)}
                 _hover={{
                   boxShadow:'outline',
                   cursor:"pointer"
@@ -126,9 +125,9 @@ const Menu = (resturant1) => {
                 bg="#FFFAF0"
                 height="80px"
                 padding="1"
+                onClick={() => navigate(`/drinks/${id}`)}
                 pt="5"
                 fontSize="3xl"
-                onClick={() => navigate(`/drinks/${id}`)}
                 textAlign="center"
                 _hover={{
                   boxShadow:'outline',
@@ -202,4 +201,4 @@ const Menu = (resturant1) => {
   );
 };
 
-export default Menu;
+export default Sandwich;
