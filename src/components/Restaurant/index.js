@@ -16,14 +16,16 @@ import {
   SimpleGrid,
 } from "@chakra-ui/react";
 import Offer from "./Offer"
-import Menu from "../Menu/Menu"
+// import Menu from "../Menu/Menu"
 import Gallary from "../Gallary"
+
 
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 const Restaurant = () => {
   const [restaurants, setRestaurants] = useState([]);
-  
+  const [searchField, setSearchField] = useState("");
+  const [searchShow, setSearchShow] = useState(false);
   
 
   const [local, setLocal] = useState("");
@@ -40,6 +42,44 @@ const Restaurant = () => {
     setLocal(getToken);
     getRestaurants();
   }, []);
+
+  
+
+  const handleChange = e => {
+    setSearchField(e.target.value);
+    if(e.target.value===""){
+      setSearchShow(false);
+      getRestaurants();
+    }
+    else {
+      setSearchShow(true);
+      getRestaurantsBySearch()
+    }
+  };
+  const getRestaurantsBySearch = async () => {
+    try {
+      const result = await axios.get(`${BASE_URL}/getRest`);
+      setRestaurants(result.data.filter(
+        item => {
+          return (
+            item
+            .Name
+            .toLowerCase()
+            .includes(searchField.toLowerCase()) ||
+            item
+            .Category
+            .toLowerCase()
+            .includes(searchField.toLowerCase())
+          );
+        }
+      ));
+
+      console.log(result.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  
 
   const getRestaurants = async () => {
     try {
@@ -79,8 +119,10 @@ const Restaurant = () => {
               placeholder="Search..."
               fontSize="1.5rem"
               color="white"
+              onChange = {handleChange}
             />
           </VStack>
+          
       <Gallary/>
         <Box>
           

@@ -20,6 +20,7 @@ const App = () => {
   return (
     <> 
     <Navbar/>
+    
       <Routes>
       <Route exact path="/gall" element={<Gallary />} />
       <Route exact path="/" element={<Restaurant />} />

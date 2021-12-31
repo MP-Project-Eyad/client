@@ -8,10 +8,11 @@ import {
     NavBtn,
     NavBtnLink,
 } from "./NavbarElements";
+import "./style.css"
 
 const Navbar = () => {
     return (
-        <>
+        <div className="navWrapper">
            <Nav>
             <NavLogo to="/">
                 Logo
@@ -36,7 +37,7 @@ const Navbar = () => {
                 </NavBtn>
             </NavMenu> 
            </Nav> 
-        </>
+        </div>
     );
 };
 export default Navbar;
