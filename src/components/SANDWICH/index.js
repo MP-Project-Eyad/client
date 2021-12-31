@@ -41,7 +41,7 @@ const navigate = useNavigate();
     try {
       const result = await axios.get(`${BASE_URL}/item/${id}`);
       //  resturantId = result.data.map((item,i) => item.RestaurantName._id )
-      setMenu(result.data.filter((item,i) => item.Category == "SANDWICH"));
+      setMenu(result.data.filter((item,i) => item.Category === "SANDWICH"));
 
       console.log(result.data);
     } catch (error) {
@@ -127,6 +127,7 @@ const navigate = useNavigate();
                 padding="1"
                 pt="5"
                 fontSize="3xl"
+                onClick={() => navigate(`/drinks/${id}`)}
                 textAlign="center"
                 _hover={{
                   boxShadow:'outline',

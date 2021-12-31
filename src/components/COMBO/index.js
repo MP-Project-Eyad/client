@@ -125,6 +125,7 @@ const navigate = useNavigate();
                 bg="#FFFAF0"
                 height="80px"
                 padding="1"
+                onClick={() => navigate(`/drinks/${id}`)}
                 pt="5"
                 fontSize="3xl"
                 textAlign="center"
