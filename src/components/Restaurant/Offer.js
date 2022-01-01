@@ -38,6 +38,7 @@ export default function Offer(resturant) {
         textAlign="center"
         padding="20px"
         borderRadius="7"
+        h="300px"
       >
         <Text
           fontSize="2rem"
@@ -50,7 +51,7 @@ export default function Offer(resturant) {
         <Text key={`img-${resturant.resturant._id}`}>
           <Image
             borderRadius="full"
-            boxSize="300px"
+            boxSize="150px"
             src={resturant.resturant.Picture}
             alt="Dan Abramov"
           />
@@ -75,17 +76,19 @@ export default function Offer(resturant) {
       {visible &&
         offers.map((element, i) => (
           <Link
+          textDecor='none'
             href={`/item/${resturant.resturant._id}`}
             border="2px solid black"
-            w="72%"
+            borderRadius="5"
+            w="70%"
             textAlign="center"
             key={`Box-${i}`}
           >
             <Box key={`Box-${i}`} 
             boxShadow="dark-lg"
             _hover={{boxShadow:"inner"}}>
-              <Text key={`T1-${i}`}>{element.CompanyOffer.Name}</Text>
-              <Text key={`T2-${i}`}>{element.DeliveryPrice} SR</Text>
+              <Text key={`T1-${i}`} display="block">{element.CompanyOffer.Name}</Text>
+              <Text key={`T2-${i}`} display="block">{element.DeliveryPrice} SR</Text>
             </Box>
           </Link>
         ))}
