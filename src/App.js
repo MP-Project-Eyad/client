@@ -13,7 +13,7 @@ import Sandwich from "./components/SANDWICH"
 import Drink from "./components/DRINK"
 import About from "./components/Navbar/about"
 import Gallary from "./components/Gallary"
-
+import Cart from "./components/Cart"
 
 
 const App = () => {
@@ -24,6 +24,7 @@ const App = () => {
       <Routes>
       <Route exact path="/gall" element={<Gallary />} />
       <Route exact path="/" element={<Restaurant />} />
+      <Route exact path="/cart" element={<Cart />} />
       <Route exact path="/about" element={<About />} />
       <Route exact path="/item/:id" element={<Menu />} />
       <Route exact path="/combo/:id" element={<Combo />} />

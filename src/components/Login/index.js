@@ -35,6 +35,7 @@ const Login = () => {
       });
       console.log(res.data.result.role);
       dispatch(Loginn({ role: res.data.result.role, token: res.data.token }));
+      localStorage.setItem("newUser", emilOrUserName );
       Swal.fire({
         position: 'center',
         icon: 'success',

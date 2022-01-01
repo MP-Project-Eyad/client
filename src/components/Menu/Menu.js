@@ -15,14 +15,17 @@ import {
   Input,
   SimpleGrid,
   Grid,
+  Icon,
   GridItem,
 } from "@chakra-ui/react";
-import Menu1 from "./Menu1";
+import {  AddIcon } from '@chakra-ui/icons'
+import Cart from "../Cart"
+
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
-const Menu = (resturant1) => {
+const Menu = () => {
   const [menu, setMenu] = useState([]);
-  const [menu1, setMenu1] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
   const { id } = useParams();
   // console.log(id,"resturant");
  const navigate = useNavigate();
@@ -40,12 +43,41 @@ const Menu = (resturant1) => {
   const getMenu = async (id) => {
     try {
       const result = await axios.get(`${BASE_URL}/item/${id}`);
-      //  resturantId = result.data.map((item,i) => item.RestaurantName._id )
+      
       setMenu(result.data);
 
       // console.log(result.data);
     } catch (error) {
       console.log(error);
+    }
+  };
+
+  const onAdd = (product) => {
+    const exist = cartItems.find((x) => x._id === product._id);
+    console.log(exist);
+    console.log(cartItems,"here if +++++++++");
+    if (exist) {
+      setCartItems(
+        cartItems.map((x) =>
+          x._id === product._id ? { ...exist, qty: exist.qty + 1 } : x
+        )
+      );
+    } else {
+      console.log(cartItems,"here else +++++++++");
+      setCartItems([...cartItems, { ...product, qty: 1 }]);
+    }
+
+  };
+  const onRemove = (product) => {
+    const exist = cartItems.find((x) => x._id === product._id);
+    if (exist.qty === 1) {
+      setCartItems(cartItems.filter((x) => x._id !== product._id));
+    } else {
+      setCartItems(
+        cartItems.map((x) =>
+          x._id === product._id ? { ...exist, qty: exist.qty - 1 } : x
+        )
+      );
     }
   };
 
@@ -189,11 +221,16 @@ const Menu = (resturant1) => {
                         {item.price}.00
                       </Text>
                     </Text>
+                    <Button onClick={() => onAdd(item)}><AddIcon/></Button>
                   </Box>
                 </>
               ))}
           </SimpleGrid>
         </Box>
+        <Cart
+          cartItems={cartItems}
+          onAdd={onAdd}
+          onRemove={onRemove}/>
         {/* <div className="logoutDiv">
       <button  id="btnLogout"onClick={logOut}>logout</button>
 </div> */}
