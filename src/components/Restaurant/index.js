@@ -98,13 +98,13 @@ const Restaurant = () => {
 
  
 
-  //   const logOut =()=>{
+    // const logOut =()=>{
 
-  //      dispatch(Logoutt({role:"",token:""}));
-  //    localStorage.clear()
-  //    navigate('/login')
+    //    dispatch(Logoutt({role:"",token:""}));
+    //  localStorage.clear()
+    //  navigate('/login')
 
-  //   }
+    // }
 
   return (
     
