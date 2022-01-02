@@ -20,6 +20,11 @@ import {
 } from "@chakra-ui/react";
 import {  AddIcon } from '@chakra-ui/icons'
 import Cart from "../Cart"
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
+
+const MySwal = withReactContent(Swal);
 
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
@@ -29,16 +34,26 @@ const Menu = () => {
   const { id } = useParams();
   // console.log(id,"resturant");
  const navigate = useNavigate();
-
+ const [cart, setCart] = useState([]);
   const [local, setLocal] = useState("");
 
   // console.log(state.Login.token);
 
-  useEffect(() => {
-    const getToken = localStorage.getItem("token");
+  const state = useSelector((state) => {
+    return state;
+  });
 
+  useEffect(() => {
+    getLocalStorage()
+console.log(state);
     getMenu(id);
+    // getData()
+    console.log(cart);
   }, []);
+  const getLocalStorage = () => {
+    const item = localStorage.getItem("newUser");
+    setLocal(item);
+  };
 
   const getMenu = async (id) => {
     try {
@@ -52,29 +67,45 @@ const Menu = () => {
     }
   };
 
-  const onAdd = (product) => {
-    const exist = cartItems.find((x) => x._id === product._id);
-    console.log(exist);
-    console.log(cartItems,"here if +++++++++");
-    if (exist) {
-      setCartItems(
-        cartItems.map((x) =>
-          x._id === product._id ? { ...exist, qty: exist.qty + 1 } : x
-        )
-      );
-    } else {
-      console.log(cartItems,"here else +++++++++");
-      setCartItems([...cartItems, { ...product, qty: 1 }]);
-    }
 
+  // const getData = async () => {
+  //   if (local) {
+  //     const item = await axios.get(
+  //       `http://localhost:5000/cart/${local}`
+  //     );
+  //     setCart(item.data);
+  //     console.log(item);
+  //   } 
+  // };
+  const onAdd = async(productId) => {
+    if(local){
+      console.log(productId);
+      await axios.post(`${BASE_URL}/cart`,{
+        itemId: productId
+      },{
+        headers: {
+          Authorization: `Bearer ${state.Login.token}`,
+        },
+      });
+//    
+     }else {
+      MySwal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "You should register or login",
+        confirmButtonColor: "black",
+      });
+
+
+     }
   };
   const onRemove = (product) => {
-    const exist = cartItems.find((x) => x._id === product._id);
+    const exist = cart.find((x) => x._id === product._id);
     if (exist.qty === 1) {
-      setCartItems(cartItems.filter((x) => x._id !== product._id));
+      setCart(cart.filter((x) => x._id !== product._id));
     } else {
-      setCartItems(
-        cartItems.map((x) =>
+      setCart(
+        cart.map((x) =>
           x._id === product._id ? { ...exist, qty: exist.qty - 1 } : x
         )
       );
@@ -221,16 +252,13 @@ const Menu = () => {
                         {item.price}.00
                       </Text>
                     </Text>
-                    <Button onClick={() => onAdd(item)}><AddIcon/></Button>
+                    <Button onClick={() => onAdd(item._id)}><AddIcon/></Button>
                   </Box>
                 </>
               ))}
           </SimpleGrid>
         </Box>
-        <Cart
-          cartItems={cartItems}
-          onAdd={onAdd}
-          onRemove={onRemove}/>
+        <Cart/>
         {/* <div className="logoutDiv">
       <button  id="btnLogout"onClick={logOut}>logout</button>
 </div> */}

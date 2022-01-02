@@ -34,7 +34,7 @@ export default function Offer(resturant) {
     <VStack className="mainDiv">
       <Box
       boxShadow="dark-lg"
-        border="1px solid #222"
+        
         textAlign="center"
         padding="20px"
         borderRadius="7"
