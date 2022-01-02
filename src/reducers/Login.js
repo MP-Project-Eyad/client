@@ -1,6 +1,7 @@
 const initialState = {
   role: "",
   token: "",
+  email:""
 };
 
 const Login = (state = initialState, action) => {
@@ -8,13 +9,15 @@ const Login = (state = initialState, action) => {
 
   switch (type) {
     case "LOGIN":
-      const { role, token } = payload;
+      const { role, token,email } = payload;
       localStorage.setItem("token", token);
       localStorage.setItem("role", role);
+      
       return { role, token };
     case "LOGOUT":
       localStorage.removeItem("token");
       localStorage.removeItem("role");
+      localStorage.removeItem("newUser");
       return { role: "", token: "" };
     default:
       const tokenStorge = localStorage.getItem("token");

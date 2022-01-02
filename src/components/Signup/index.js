@@ -110,18 +110,22 @@ const Signup = () => {
               }}
             >
               <input
+              className="signupInput1"
                 type="text"
                 placeholder="Username"
                 onChange={(e) => setUsername(e.target.value)}
                 required
               />
               <input
+              className="signupInput1"
                 type="text"
                 placeholder="Email"
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
               <input
+              className="signupInput1"
+              defaultValue=""
                 type="password"
                 placeholder="Password"
                 onChange={(e) => setPassword(e.target.value)}

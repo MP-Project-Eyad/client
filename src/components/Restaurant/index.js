@@ -110,6 +110,9 @@ const Restaurant = () => {
     
     <ChakraProvider>
       <div className="restWrapper">
+      
+      <VStack> 
+      <Gallary/> </VStack>
       <VStack>
             <Input
               textAlign="center"
@@ -122,8 +125,6 @@ const Restaurant = () => {
               onChange = {handleChange}
             />
           </VStack>
-          
-      <Gallary/>
         <Box>
           
           <SimpleGrid padding="3rem" columns={3} spacing={10}>
