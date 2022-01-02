@@ -68,13 +68,15 @@ main.signupPanel form {
   display: flex;
   flex-direction: column;
 }
-
+.signupInput1{
+  background: #dda996;
+}
 main.signupPanel form input {
   margin: 0.5rem 0;
   width: 200px;
   border-radius: 50px;
   padding: 1rem 0.75rem;
-  background: #91b0c8;
+  background: #dda996;
   border: none;
   color: black;
   font-family: "Outfit", sans-serif;
@@ -130,7 +132,7 @@ main.signupPanel #loginButton {
 }
 
 .signupPanel__half.signupHalf--second #signupSubmitButton:hover {
-  background-color: #eea38e;
+  /* background-color: #eea38e; */
   cursor: pointer;
 }
 

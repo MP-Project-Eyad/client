@@ -115,7 +115,7 @@ const Login = () => {
             <div>
               <p>You already loggedin, you don't need to login</p>
             </div>
-            <div>
+            <div className="homeButtons">
               <button onClick={() => navigate("/")}>home</button>
             </div>
           </div>
@@ -133,12 +133,14 @@ const Login = () => {
               }}
             >
               <input
+              className="signupInput1"
                 type="text"
                 placeholder="Email/Username"
                 onChange={(e) => setEmilOrUserName(e.target.value)}
                 required
               />
               <input
+              className="signupInput1"
                 type="password"
                 placeholder="Password"
                 onChange={(e) => setPassword(e.target.value)}
@@ -149,13 +151,7 @@ const Login = () => {
               </p>
               <input id="submitButton" type="submit" value="Submit" />
             </form>
-            <button
-              type="button"
-              className="login-with-google-btn"
-              onClick={googleLogin}
-            >
-              Or Login with Google
-            </button>
+          
           </div>
           <div className="signUpDiv">
             <h2 className="gotosignUp">Hello, friend!</h2>

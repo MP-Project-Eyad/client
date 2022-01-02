@@ -31,6 +31,8 @@ const BASE_URL = process.env.REACT_APP_BASE_URL;
 const Menu = () => {
   const [menu, setMenu] = useState([]);
   const [cartItems, setCartItems] = useState([]);
+  const [searchField, setSearchField] = useState("");
+  const [searchShow, setSearchShow] = useState(false);
   const { id } = useParams();
   // console.log(id,"resturant");
  const navigate = useNavigate();
@@ -66,17 +68,45 @@ console.log(state);
       console.log(error);
     }
   };
+  const handleChange = e => {
+    setSearchField(e.target.value);
+    if(e.target.value===""){
+      setSearchShow(false);
+      getMenu(id);
+    }
+    else {
+      setSearchShow(true);
+      getItemBySearch(id)
+    }
+  };
+
+  const getItemBySearch = async (id) => {
+    try {
+      const result = await axios.get(`${BASE_URL}/item/${id}`);
+      setMenu(result.data.filter(
+        item => {
+          return (
+            item
+            .Name
+            .toLowerCase()
+            .includes(searchField.toLowerCase()) ||
+            item
+            .Category
+            .toLowerCase()
+            .includes(searchField.toLowerCase())
+          );
+        }
+      ));
+
+      console.log(result.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  
 
 
-  // const getData = async () => {
-  //   if (local) {
-  //     const item = await axios.get(
-  //       `http://localhost:5000/cart/${local}`
-  //     );
-  //     setCart(item.data);
-  //     console.log(item);
-  //   } 
-  // };
+
   const onAdd = async(productId) => {
     if(local){
       console.log(productId);
@@ -125,6 +155,7 @@ console.log(state);
               placeholder="Search..."
               fontSize="1.5rem"
               color="white"
+              onChange = {handleChange}
             />
           </VStack>
           <SimpleGrid
@@ -214,10 +245,18 @@ console.log(state);
             </SimpleGrid>{" "}
           </SimpleGrid>
           <SimpleGrid
+          padding="3rem"
+          columns={2}
+          spacing={10}
+         
+          
+          >
+        <Box>
+          <SimpleGrid
             padding="3rem"
             columns={1}
             spacing={10}
-            border="1px solid"
+           
           >
             {menu.length &&
               menu.map((item, i) => (
@@ -244,7 +283,7 @@ console.log(state);
                       boxSize="200px"
                       src={item.Picture}
                       alt="Dan Abramov"
-                      ml="83%"
+                      ml="50%"
                     />
                     <Text fontSize="4xl">
                       SAR{" "}
@@ -252,16 +291,25 @@ console.log(state);
                         {item.price}.00
                       </Text>
                     </Text>
-                    <Button onClick={() => onAdd(item._id)}><AddIcon/></Button>
+                    <Button onClick={() => onAdd(item._id)}> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16">
+  <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
+</svg></Button>
                   </Box>
                 </>
               ))}
           </SimpleGrid>
-        </Box>
-        <Cart/>
-        {/* <div className="logoutDiv">
-      <button  id="btnLogout"onClick={logOut}>logout</button>
-</div> */}
+        </Box><VStack ><Box textAlign="center"
+         padding="3"
+        w="400px"
+        mt='7%'
+                    boxShadow="dark-lg"
+                    p="6"
+                    rounded="md"
+                   
+                    bg="white">
+        <Cart/></Box></VStack></SimpleGrid></Box>
+        
+       
       </div>
     </ChakraProvider>
   );
