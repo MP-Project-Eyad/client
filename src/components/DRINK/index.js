@@ -114,9 +114,9 @@ const Drinks = () => {
                 p="6"
                 rounded="md"
                 bg="#FFF"
-                height="80px"
+                height="50px"
                 padding="1"
-                pt="5"
+                // pt="5"
                 onClick={() => navigate(`/item/${id}`)}
                 fontSize="3xl"
                 textAlign="center"
@@ -134,9 +134,9 @@ const Drinks = () => {
                 ml="2"
                 onClick={() => navigate(`/combo/${id}`)}
                 bg="#FFF"
-                height="80px"
+                height="50px"
                 padding="1"
-                pt="5"
+                // pt="5"
                 fontSize="3xl"
                 textAlign="center"
                 _hover={{
@@ -151,9 +151,9 @@ const Drinks = () => {
                 p="6"
                 rounded="md"
                 bg="#FFF"
-                height="80px"
+                height="50px"
                 padding="1"
-                pt="5"
+                // pt="5"
                 fontSize="3xl"
                 onClick={() => navigate(`/sandwich/${id}`)}
                 textAlign="center"
@@ -169,9 +169,9 @@ const Drinks = () => {
                 p="6"
                 rounded="md"
                 bg="#FFF"
-                height="80px"
+                height="50px"
                 padding="1"
-                pt="5"
+                // pt="5"
                 onClick={() => navigate(`/drinks/${id}`)}
                 fontSize="3xl"
                 textAlign="center"

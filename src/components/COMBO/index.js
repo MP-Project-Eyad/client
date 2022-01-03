@@ -116,9 +116,9 @@ const Sandwich = () => {
                 p="6"
                 rounded="md"
                 bg="#FFF"
-                height="80px"
+                height="50px"
                 padding="1"
-                pt="5"
+                // pt="5"
                 onClick={() => navigate(`/item/${id}`)}
                 fontSize="3xl"
                 textAlign="center"
@@ -136,9 +136,9 @@ const Sandwich = () => {
                 ml="2"
                 onClick={() => navigate(`/combo/${id}`)}
                 bg="#FFF"
-                height="80px"
+                height="50px"
                 padding="1"
-                pt="5"
+                // pt="5"
                 fontSize="3xl"
                 textAlign="center"
                 _hover={{
@@ -153,9 +153,9 @@ const Sandwich = () => {
                 p="6"
                 rounded="md"
                 bg="#FFF"
-                height="80px"
+                height="50px"
                 padding="1"
-                pt="5"
+                // pt="5"
                 fontSize="3xl"
                 textAlign="center"
                 onClick={() => navigate(`/sandwich/${id}`)}
@@ -171,10 +171,10 @@ const Sandwich = () => {
                 p="6"
                 rounded="md"
                 bg="#FFF"
-                height="80px"
+                height="50px"
                 padding="1"
                 onClick={() => navigate(`/drinks/${id}`)}
-                pt="5"
+                // pt="5"
                 fontSize="3xl"
                 textAlign="center"
                 _hover={{
