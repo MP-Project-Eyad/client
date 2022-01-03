@@ -104,7 +104,7 @@ export default function Cart({number,number1,number2,number3}) {
           {cart.map((item) => (
             <div key={item.itemId._id} className="row">
               <div className="col-2">
-                <Text fontSize="1.5rem">{item.itemId.Name}</Text>
+                <Text fontSize="1.5rem">{item.itemId.Name} <span style={{fontSize:"0.5rem"}}>({item.itemId.Category})</span></Text>
               </div>
               <HStack>
                 <div className="col-2 text-right">
@@ -124,6 +124,7 @@ export default function Cart({number,number1,number2,number3}) {
 
           {cart.length !== 0 && (
             <>
+            <br/>
               <hr></hr>
               <div className="row">
                 <div className="col-2">
