@@ -127,7 +127,7 @@ const Restaurant = () => {
           </VStack>
         <Box>
           
-          <SimpleGrid padding="3rem" columns={3} spacing={10}>
+          <SimpleGrid padding="2rem" columns={3} spacing={10}>
             {restaurants.map((item, i) => (
             <>
                 <Offer resturant={item} key={i}/>

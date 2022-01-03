@@ -1,5 +1,15 @@
 import React from "react";
 
+import {
+    Nav,
+    NavLogo,
+    NavLink,
+    Bars,
+    NavMenu,
+    NavBtn,
+    NavBtnLink,
+} from "./NavbarElements";
+import "./style.css"
 const About = () => {
     return (
         <div className="navWrapper"
