@@ -43,7 +43,7 @@ navigate(`/item/${resturant.resturant._id}`)
       {offers.map((element, i) => (
 
         <Link
-         
+        
          onClick={goToOffers}
           borderRadius="5"
           w="20%"
@@ -72,76 +72,7 @@ navigate(`/item/${resturant.resturant._id}`)
 
 export default function Offer(resturant) {
   return (
-    // <VStack className="mainDiv">
-    //   <Box
-    //   boxShadow="dark-lg"
-    //   class="flip-card"
-    //     textAlign="center"
-    //     padding="20px"
-    //     borderRadius="7"
-    //     h="300px"
-    //   >
-    //     <Box className="flip-card-inner"  >
-    //     <Box className="flip-card-front">
-    //     <Text
-    //       fontSize="2rem"
-    //       fontFamily="Hardware"
-    //       key={`desc-${resturant.resturant._id}`}
-    //     >
-    //       {resturant.resturant.Name}
-    //     </Text>
-
-    //     <Text key={`img-${resturant.resturant._id}`}>
-    //       <Image
-
-    //         borderRadius="full"
-    //         boxSize="150px"
-    //         src={resturant.resturant.Picture}
-    //         alt="Dan Abramov"
-    //       />
-    //     </Text>
-    //     <Button
-    //       mt="6"
-    //       ml="170"
-    //       bg="#222"
-    //       color="white"
-    //       _hover={{
-    //         background: "white",
-    //         color: "black",
-    //         key: `${resturant.resturant._id}`,
-    //       }}
-    //       onClick={(i) => {
-    //         getOffers(resturant.resturant._id);
-    //       }}
-    //     >
-    //       {visible ? "Hide offers" : "Show offers"}
-    //     </Button>
-    //     </Box>
-
-    //   {visible &&
-    //     offers.map((element, i) => (
-    //       <Link
-    //       className='info'
-    //       textDecor='none'
-    //         href={`/item/${resturant.resturant._id}`}
-    //         border="2px solid black"
-    //         borderRadius="5"
-    //         w="70%"
-    //         textAlign="center"
-    //         key={`Box-${i}`}
-    //       >
-    //         <Box key={`Box-${i}`}
-    //         boxShadow="dark-lg"
-    //         _hover={{boxShadow:"inner"}}>
-    //           <Text key={`T1-${i}`} display="block">{element.CompanyOffer.Name}</Text>
-    //           <Text key={`T2-${i}`} display="block">{element.DeliveryPrice} SR</Text>
-    //         </Box>
-    //       </Link>
-
-    //     ))}
-    //     </Box>
-    //       </Box>
-    // </VStack>
+    
     <SimpleGrid padding="3rem" columns={3} spacing={10}>
     <div class="flip-card">
       <div class="flip-card-inner">

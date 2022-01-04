@@ -91,25 +91,12 @@ const Restaurant = () => {
       console.log(error);
     }
   };
-  //   const handleClick = (id) => {
-  //     setVisible(!visible )
-  //     console.log(visible);
-  //   }
-
- 
-
-    // const logOut =()=>{
-
-    //    dispatch(Logoutt({role:"",token:""}));
-    //  localStorage.clear()
-    //  navigate('/login')
-
-    // }
+  
 
   return (
     
     <ChakraProvider>
-      <div className="restWrapper">
+      <div className="restWrapper"  >
       
       <VStack> 
       <Gallary/> </VStack>

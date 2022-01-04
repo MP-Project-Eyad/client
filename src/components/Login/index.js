@@ -33,9 +33,10 @@ const Login = () => {
         password,
         userName: emilOrUserName,
       });
-      console.log(res.data.result.role);
-      dispatch(Loginn({ role: res.data.result.role, token: res.data.token }));
+      console.log(res.data.result._id);
+      dispatch(Loginn({ role: res.data.result.role, token: res.data.token,id:res.data.result._id }));
       localStorage.setItem("newUser", emilOrUserName );
+      localStorage.setItem("id", res.data.result._id );
       Swal.fire({
         position: 'center',
         icon: 'success',

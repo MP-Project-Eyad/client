@@ -1,5 +1,5 @@
 .navWrapper {
-    height: 100%;
+    width: 100%;
     /* display: flex; */
    
     /* justify-content: center;
@@ -24,3 +24,14 @@
   .imgLogo img{
     width: 100px;
   }
+  @media screen and (max-width: 1024px) {
+   
+    .NavLogo{
+      width: 10px;
+      height: 3px;
+    }
+   
+  }
+
+
+  

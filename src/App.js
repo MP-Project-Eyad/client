@@ -15,7 +15,7 @@ import About from "./components/Navbar/about"
 import Gallary from "./components/Gallary"
 import Cart from "./components/Cart"
 import Payment from "./components/Payment"
-
+import Profile from "./components/Profile";
 
 const App = () => {
   return (
@@ -25,6 +25,7 @@ const App = () => {
       <Routes>
       <Route exact path="/payment" element={<Payment />} />
       <Route exact path="/gall" element={<Gallary />} />
+      <Route exact path="/profile" element={<Profile />} />
       <Route exact path="/" element={<Restaurant />} />
       <Route exact path="/cart" element={<Cart />} />
       <Route exact path="/about" element={<About />} />

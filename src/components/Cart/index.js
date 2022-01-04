@@ -1,35 +1,29 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router";
+import { useNavigate } from "react-router";
 import axios from "axios";
 import {
   Box,
   Text,
-  Link,
-  VStack,
   Button,
-  Image,
-  Input,
-  SimpleGrid,
-  GridItem,
   HStack,
 } from "@chakra-ui/react";
 import { AddIcon, MinusIcon } from "@chakra-ui/icons";
-import { useSelector, useDispatch } from "react-redux";
-import Swal from "sweetalert2";
+import { useSelector } from "react-redux";
+// import Swal from "sweetalert2";
 
-import withReactContent from "sweetalert2-react-content";
+// import withReactContent from "sweetalert2-react-content";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 export default function Cart({number,number1,number2,number3}) {
-  const [local, setLocal] = useState("");
+  // const [local, setLocal] = useState("");
   const [cart, setCart] = useState([]);
   const navigate = useNavigate();
   const itemsPrice = cart.reduce((a, c) => a + c.quantity * c.itemId.price, 0);
   const taxPrice = itemsPrice * 0.05;
   const shippingPrice = itemsPrice > 2000 ? 0 : 20;
   const totalPrice = itemsPrice + taxPrice + shippingPrice;
-  const MySwal = withReactContent(Swal);
+  // const MySwal = withReactContent(Swal);
 
   const state = useSelector((state) => {
     return {
@@ -39,19 +33,16 @@ export default function Cart({number,number1,number2,number3}) {
   useEffect(() => {
 
     getCart();
-    console.log(cart);
+   // eslint-disable-next-line
   }, []);
   useEffect(() => {
 
     getCart();
-    
+    // eslint-disable-next-line
   }, [number,number1,number2,number3]);
   
 
-  const getLocalStorage = () => {
-    const item = localStorage.getItem("newUser");
-    setLocal(item);
-  };
+ 
   const getCart = async () => {
     const item = await axios.get(`${BASE_URL}/cart`, {
       headers: {
@@ -59,7 +50,7 @@ export default function Cart({number,number1,number2,number3}) {
       },
     });
     setCart(item.data.cart);
-    console.log(item.data.cart);
+    
   };
 
   const onAdd = async (productId) => {

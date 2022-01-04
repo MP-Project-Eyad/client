@@ -71,9 +71,7 @@ const Navbar = () => {
                 <NavLink to="/" activeStyle>
                     Home
                 </NavLink>
-                <NavLink to="/about" activeStyle>
-                    About
-                </NavLink>
+                
                 
                 {!visible ? (<>
                 <NavLink to="/login" activeStyle>
@@ -85,6 +83,9 @@ const Navbar = () => {
                 <NavLink to="/cart" activeStyle>
                     Cart <span className="spanNumOfItem"><i >{cart.length}</i></span>
                 </NavLink>}
+                <NavLink to="/profile" activeStyle>
+                    Profile
+                </NavLink>
                 <NavBtn onClick={logOut}>
                     <NavBtnLink  to="/signup">Log Out</NavBtnLink>                
                 </NavBtn></>)}

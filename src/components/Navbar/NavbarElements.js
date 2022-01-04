@@ -9,15 +9,14 @@ export const Nav = styled.nav`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.2rem calc((100vw - 1000px) / 2);
     z-index: 12;
+    width: 100%;
 `;
 export const NavLogo = styled(Link)`
   cursor: pointer;
   color: #fff;
   font-size: 2rem;
   text-decoration: none;
-margin-left: -200px;
 `;
 
 export const NavLink = styled(Link)`
@@ -54,7 +53,6 @@ export const NavMenu = styled.div`
   display: flex;
   align-items: center;
   
-  margin-right: -200px;
 
   @media screen and (max-width: 768px) {
     display: none;
@@ -68,6 +66,8 @@ export const NavBtn = styled.nav`
 
   @media screen and (max-width: 768px) {
     display: none;
+
+  
   }
 `;
 

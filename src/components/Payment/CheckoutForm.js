@@ -5,7 +5,11 @@ import {
   useElements,
 } from "@stripe/react-stripe-js";
 import "./style.css";
-import Navbar from "../Navbar";
+import withReactContent from "sweetalert2-react-content";
+import Swal from "sweetalert2";
+
+
+const MySwal = withReactContent(Swal);
 
 export default function CheckoutForm( ) {
   const stripe = useStripe();
@@ -47,7 +51,15 @@ export default function CheckoutForm( ) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+   
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'payment successfully ',
+        showConfirmButton: false,
+        timer: 6500
+      })
+    
     if (!stripe || !elements) {
       return;
     }
@@ -59,8 +71,9 @@ export default function CheckoutForm( ) {
       confirmParams: {
         return_url: `http://localhost:3000`,
       },
+      
     });
-
+    
     if (error.type === "card_error" || error.type === "validation_error") {
       setMessage(error.message);
     } else {
@@ -74,9 +87,10 @@ export default function CheckoutForm( ) {
     <div>
      
       <div className="containerPayment">
-        <form id="payment-form" className="formPay" onSubmit={handleSubmit}>
+        <form id="payment-form" className="formPay" onSubmit={handleSubmit} >
           <PaymentElement id="payment-element" />
           <button
+          
             className="btnPay"
             disabled={isLoading || !stripe || !elements}
             id="submit"

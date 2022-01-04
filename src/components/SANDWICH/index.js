@@ -20,9 +20,9 @@ import {
 import Cart from "../Cart";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-import { DatePicker } from "antd";
-import "antd/dist/antd.css";
-import { Alert } from "antd";
+
+
+
 
 const MySwal = withReactContent(Swal);
 
