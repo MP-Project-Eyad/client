@@ -3,19 +3,16 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router";
 import "./style.css";
 import { useSelector, useDispatch } from "react-redux";
-// import { Logoutt } from "../../reducers/Login";
+
 import { ChakraProvider, HStack } from "@chakra-ui/react";
 import {
   Box,
   Text,
-  Link,
   VStack,
   Button,
   Image,
   Input,
   SimpleGrid,
-  Grid,
-  GridItem,
 } from "@chakra-ui/react";
 import Cart from "../Cart";
 import Swal from "sweetalert2";
@@ -29,12 +26,11 @@ const Drinks = () => {
   const [number1, setNumber1] = useState(0);
 
   const { id } = useParams();
-  // console.log(id,"resturant");
+
   const navigate = useNavigate();
 
   const [local, setLocal] = useState("");
 
-  // console.log(state.Login.token);
   const state = useSelector((state) => {
     return state;
   });
@@ -52,10 +48,8 @@ const Drinks = () => {
   const getMenu = async (id) => {
     try {
       const result = await axios.get(`${BASE_URL}/item/${id}`);
-      //  resturantId = result.data.map((item,i) => item.RestaurantName._id )
-      setMenu(result.data.filter((item, i) => item.Category == "DRINKS"));
 
-      console.log(result.data);
+      setMenu(result.data.filter((item, i) => item.Category == "DRINKS"));
     } catch (error) {
       console.log(error);
     }
@@ -63,7 +57,6 @@ const Drinks = () => {
 
   const onAdd = async (productId) => {
     if (local) {
-      console.log(productId);
       await axios.post(
         `${BASE_URL}/cart`,
         {
@@ -75,7 +68,7 @@ const Drinks = () => {
           },
         }
       );
-      setNumber1(number1+1)
+      setNumber1(number1 + 1);
     } else {
       MySwal.fire({
         icon: "error",
@@ -182,7 +175,6 @@ const Drinks = () => {
               >
                 DRINKS
               </Box>
-              
             </SimpleGrid>{" "}
           </SimpleGrid>
           <SimpleGrid padding="3rem" columns={2} spacing={10}>

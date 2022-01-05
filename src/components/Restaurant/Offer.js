@@ -25,9 +25,9 @@ const RestOffer = ({ resturant }) => {
   useEffect(() => {
     getOffers();
   }, []);
-const goToOffers =()=>{
-navigate(`/item/${resturant.resturant._id}`)
-}
+  const goToOffers = () => {
+    navigate(`/item/${resturant.resturant._id}`);
+  };
   const getOffers = async () => {
     try {
       const result = await axios.get(
@@ -41,30 +41,28 @@ navigate(`/item/${resturant.resturant._id}`)
   return (
     <>
       {offers.map((element, i) => (
-
         <Link
-        
-         onClick={goToOffers}
+          onClick={goToOffers}
           borderRadius="5"
           w="20%"
           textAlign="center"
           key={`Box-${i}`}
         >
           <SimpleGrid padding="1rem" columns={1} spacing={10}>
-          <Box
-            key={`Box-${i}`}
-            boxShadow="dark-lg"
-            _hover={{ boxShadow: "outline" }}
-          >
-            <Text key={`T1-${i}`} display="block">
-              {element.CompanyOffer.Name}
-            </Text>
-            <Text key={`T2-${i}`} display="block">
-              {element.DeliveryPrice} SR
-            </Text>
-          </Box></SimpleGrid>
+            <Box
+              key={`Box-${i}`}
+              boxShadow="dark-lg"
+              _hover={{ boxShadow: "outline" }}
+            >
+              <Text key={`T1-${i}`} display="block">
+                {element.CompanyOffer.Name}
+              </Text>
+              <Text key={`T2-${i}`} display="block">
+                {element.DeliveryPrice} SR
+              </Text>
+            </Box>
+          </SimpleGrid>
         </Link>
-      
       ))}
     </>
   );
@@ -72,28 +70,27 @@ navigate(`/item/${resturant.resturant._id}`)
 
 export default function Offer(resturant) {
   return (
-    
     <SimpleGrid padding="3rem" columns={3} spacing={10}>
-    <div class="flip-card">
-      <div class="flip-card-inner">
-        <div class="flip-card-front">
-          <VStack>
-          <h1 key={`desc-${resturant.resturant._id}`}>
-            {resturant.resturant.Name}
-          </h1>
-          <Image
-            borderRadius="full"
-            boxSize="80%"
-            src={resturant.resturant.Picture}
-            alt="Restaurant logo"
-          />
-          </VStack>
-        </div>
-        <div className="flip-card-back">
-          <RestOffer resturant={resturant} />
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <VStack>
+              <h1 key={`desc-${resturant.resturant._id}`}>
+                {resturant.resturant.Name}
+              </h1>
+              <Image
+                borderRadius="full"
+                boxSize="80%"
+                src={resturant.resturant.Picture}
+                alt="Restaurant logo"
+              />
+            </VStack>
+          </div>
+          <div className="flip-card-back">
+            <RestOffer resturant={resturant} />
+          </div>
         </div>
       </div>
-    </div>
     </SimpleGrid>
   );
 }

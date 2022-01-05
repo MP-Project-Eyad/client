@@ -28,19 +28,16 @@ const Signup = () => {
         userName: username,
         email: email,
         password: password,
-        
       });
-      
-        MySwal.fire({
-          position: 'center',
-          icon: 'success',
-          title: 'You will receive a confirmation email ',
-          showConfirmButton: false,
-          timer: 1500
-        })
-        navigate("/login");
-      
-      
+
+      MySwal.fire({
+        position: "center",
+        icon: "success",
+        title: "You will receive a confirmation email ",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      navigate("/login");
     } catch (error) {
       MySwal.fire({
         icon: "error",
@@ -51,10 +48,6 @@ const Signup = () => {
       });
       // setMessage(res.data.message);
     }
-   
-      
-
-  
   };
 
   return (
@@ -72,7 +65,6 @@ const Signup = () => {
         </h1>
       ) : (
         <main className="signupPanel">
-          
           <div className="loginDiv">
             <h1>check Password:</h1>
             <PasswordChecklist
@@ -95,11 +87,15 @@ const Signup = () => {
                 }
               }}
             />
-            <button id="loginButton" className="btnBK" onClick={() => navigate("/login")}>
+            <button
+              id="loginButton"
+              className="btnBK"
+              onClick={() => navigate("/login")}
+            >
               or go to login
             </button>
           </div>
-          <div  className="signupDiv">
+          <div className="signupDiv">
             <h2>Signup</h2>
             {message ? <div className="message">{message}</div> : ""}
             <form
@@ -110,22 +106,22 @@ const Signup = () => {
               }}
             >
               <input
-              className="signupInput1"
+                className="signupInput1"
                 type="text"
                 placeholder="Username"
                 onChange={(e) => setUsername(e.target.value)}
                 required
               />
               <input
-              className="signupInput1"
+                className="signupInput1"
                 type="text"
                 placeholder="Email"
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
               <input
-              className="signupInput1"
-              defaultValue=""
+                className="signupInput1"
+                defaultValue=""
                 type="password"
                 placeholder="Password"
                 onChange={(e) => setPassword(e.target.value)}

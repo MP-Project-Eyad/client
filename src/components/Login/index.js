@@ -7,7 +7,6 @@ import "./style.css";
 import withReactContent from "sweetalert2-react-content";
 import Swal from "sweetalert2";
 
-
 const MySwal = withReactContent(Swal);
 const popupTools = require("popup-tools");
 const BASE_URL = process.env.REACT_APP_BASE_URL;
@@ -15,7 +14,7 @@ const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [emilOrUserName, setEmilOrUserName] = useState("");
-  // const [userName, setUserName] = useState("");
+ 
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
 
@@ -34,16 +33,22 @@ const Login = () => {
         userName: emilOrUserName,
       });
       console.log(res.data.result._id);
-      dispatch(Loginn({ role: res.data.result.role, token: res.data.token,id:res.data.result._id }));
-      localStorage.setItem("newUser", emilOrUserName );
-      localStorage.setItem("id", res.data.result._id );
+      dispatch(
+        Loginn({
+          role: res.data.result.role,
+          token: res.data.token,
+          id: res.data.result._id,
+        })
+      );
+      localStorage.setItem("newUser", emilOrUserName);
+      localStorage.setItem("id", res.data.result._id);
       Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Logged in successfully ',
+        position: "center",
+        icon: "success",
+        title: "Logged in successfully ",
         showConfirmButton: false,
-        timer: 1500
-      })
+        timer: 1500,
+      });
       navigate("/");
     } catch (error) {
       setMessage(error.response.data.message);
@@ -134,14 +139,14 @@ const Login = () => {
               }}
             >
               <input
-              className="signupInput1"
+                className="signupInput1"
                 type="text"
                 placeholder="Email/Username"
                 onChange={(e) => setEmilOrUserName(e.target.value)}
                 required
               />
               <input
-              className="signupInput1"
+                className="signupInput1"
                 type="password"
                 placeholder="Password"
                 onChange={(e) => setPassword(e.target.value)}
@@ -152,7 +157,6 @@ const Login = () => {
               </p>
               <input id="submitButton" type="submit" value="Submit" />
             </form>
-          
           </div>
           <div className="signUpDiv">
             <h2 className="gotosignUp">Hello, friend!</h2>

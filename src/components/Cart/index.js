@@ -2,28 +2,18 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import axios from "axios";
-import {
-  Box,
-  Text,
-  Button,
-  HStack,
-} from "@chakra-ui/react";
+import { Box, Text, Button, HStack } from "@chakra-ui/react";
 import { AddIcon, MinusIcon } from "@chakra-ui/icons";
 import { useSelector } from "react-redux";
-// import Swal from "sweetalert2";
-
-// import withReactContent from "sweetalert2-react-content";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
-export default function Cart({number,number1,number2,number3}) {
-  // const [local, setLocal] = useState("");
+export default function Cart({ number, number1, number2, number3 }) {
   const [cart, setCart] = useState([]);
   const navigate = useNavigate();
   const itemsPrice = cart.reduce((a, c) => a + c.quantity * c.itemId.price, 0);
   const taxPrice = itemsPrice * 0.05;
   const shippingPrice = itemsPrice > 2000 ? 0 : 20;
   const totalPrice = itemsPrice + taxPrice + shippingPrice;
-  // const MySwal = withReactContent(Swal);
 
   const state = useSelector((state) => {
     return {
@@ -31,18 +21,14 @@ export default function Cart({number,number1,number2,number3}) {
     };
   });
   useEffect(() => {
-
-    getCart();
-   // eslint-disable-next-line
-  }, []);
-  useEffect(() => {
-
     getCart();
     // eslint-disable-next-line
-  }, [number,number1,number2,number3]);
-  
+  }, []);
+  useEffect(() => {
+    getCart();
+    // eslint-disable-next-line
+  }, [number, number1, number2, number3]);
 
- 
   const getCart = async () => {
     const item = await axios.get(`${BASE_URL}/cart`, {
       headers: {
@@ -50,11 +36,9 @@ export default function Cart({number,number1,number2,number3}) {
       },
     });
     setCart(item.data.cart);
-    
   };
 
   const onAdd = async (productId) => {
-    console.log(productId);
     await axios.post(
       `${BASE_URL}/cart`,
       {
@@ -70,19 +54,21 @@ export default function Cart({number,number1,number2,number3}) {
     getCart();
   };
   const onRemove = async (productId) => {
-    console.log(productId,state.token,"<====");
-    await axios.post(`${BASE_URL}/reduce-cart-item/${productId}`,{}, {
-      headers: {
-        Authorization: `Bearer ${state.token}`,
-      },
-    });
+    await axios.post(
+      `${BASE_URL}/reduce-cart-item/${productId}`,
+      {},
+      {
+        headers: {
+          Authorization: `Bearer ${state.token}`,
+        },
+      }
+    );
     getCart();
   };
 
   return (
     <aside className="block col-1">
-      <Box textAlign="center"
-                >
+      <Box textAlign="center">
         <Text fontSize="2rem" as="strong">
           Cart Items
         </Text>
@@ -95,14 +81,24 @@ export default function Cart({number,number1,number2,number3}) {
           {cart.map((item) => (
             <div key={item.itemId._id} className="row">
               <div className="col-2">
-                <Text fontSize="1.5rem">{item.itemId.Name} <span style={{fontSize:"0.5rem"}}>({item.itemId.Category})</span></Text>
+                <Text fontSize="1.5rem">
+                  {item.itemId.Name}{" "}
+                  <span style={{ fontSize: "0.5rem" }}>
+                    ({item.itemId.Category})
+                  </span>
+                </Text>
               </div>
               <HStack>
                 <div className="col-2 text-right">
                   {item.quantity} x {item.itemId.price.toFixed(2)} SAR
                 </div>
                 <div className="col-2">
-                  <Button size="xs" onClick={() => {onRemove(item.itemId._id); console.log(item.itemId)}}>
+                  <Button
+                    size="xs"
+                    onClick={() => {
+                      onRemove(item.itemId._id);
+                    }}
+                  >
                     <MinusIcon />
                   </Button>{" "}
                   <Button size="xs" onClick={() => onAdd(item.itemId._id)}>
@@ -115,7 +111,7 @@ export default function Cart({number,number1,number2,number3}) {
 
           {cart.length !== 0 && (
             <>
-            <br/>
+              <br />
               <hr></hr>
               <div className="row">
                 <div className="col-2">
@@ -155,7 +151,7 @@ export default function Cart({number,number1,number2,number3}) {
                 <Button
                   bg="#E7815C"
                   w="100%"
-                  onClick={() => navigate('/payment')}
+                  onClick={() => navigate("/payment")}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

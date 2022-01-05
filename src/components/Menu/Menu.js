@@ -2,23 +2,19 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router";
 import "./style.css";
-import { useSelector, useDispatch } from "react-redux";
-// import { Logoutt } from "../../reducers/Login";
-import { ChakraProvider, HStack } from "@chakra-ui/react";
+import { useSelector } from "react-redux";
+
+import { ChakraProvider } from "@chakra-ui/react";
 import {
   Box,
   Text,
-  Link,
   VStack,
   Button,
   Image,
   Input,
   SimpleGrid,
-  Grid,
-  Icon,
-  GridItem,
 } from "@chakra-ui/react";
-import { AddIcon } from "@chakra-ui/icons";
+
 import Cart from "../Cart";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
@@ -28,17 +24,15 @@ const MySwal = withReactContent(Swal);
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 const Menu = () => {
   const [menu, setMenu] = useState([]);
-  const [cartItems, setCartItems] = useState([]);
+
   const [searchField, setSearchField] = useState("");
   const [searchShow, setSearchShow] = useState(false);
   const { id } = useParams();
-  // console.log(id,"resturant");
+
   const navigate = useNavigate();
   const [cart, setCart] = useState([]);
   const [number, setNumber] = useState(0);
   const [local, setLocal] = useState("");
-
-  // console.log(state.Login.token);
 
   const state = useSelector((state) => {
     return state;
@@ -46,9 +40,10 @@ const Menu = () => {
 
   useEffect(() => {
     getLocalStorage();
-    console.log(state);
+
     getMenu(id);
-    getCart();  }, []);
+    getCart();
+  }, []);
   const getLocalStorage = () => {
     const item = localStorage.getItem("newUser");
     setLocal(item);
@@ -59,8 +54,6 @@ const Menu = () => {
       const result = await axios.get(`${BASE_URL}/item/${id}`);
 
       setMenu(result.data);
-
-      // console.log(result.data);
     } catch (error) {
       console.log(error);
     }
@@ -73,14 +66,12 @@ const Menu = () => {
       },
     });
     setCart(item.data.cart);
-    console.log(item.data.cart);
   };
   const handleChange = (e) => {
     setSearchField(e.target.value);
     if (e.target.value === "") {
       setSearchShow(false);
       getMenu(id);
-      
     } else {
       setSearchShow(true);
       getItemBySearch(id);
@@ -98,8 +89,6 @@ const Menu = () => {
           );
         })
       );
-
-      console.log(result.data);
     } catch (error) {
       console.log(error);
     }
@@ -107,7 +96,6 @@ const Menu = () => {
 
   const onAdd = async (productId) => {
     if (local) {
-      console.log(productId);
       await axios.post(
         `${BASE_URL}/cart`,
         {
@@ -119,8 +107,8 @@ const Menu = () => {
           },
         }
       );
-      getCart()
-      setNumber(number+1)
+      getCart();
+      setNumber(number + 1);
     } else {
       MySwal.fire({
         icon: "error",
@@ -130,7 +118,6 @@ const Menu = () => {
       });
     }
   };
-  
 
   return (
     <ChakraProvider>
@@ -163,7 +150,6 @@ const Menu = () => {
                 bg="#FFF"
                 height="50px"
                 padding="1"
-                // pt="5"
                 onClick={() => navigate(`/item/${id}`)}
                 fontSize="3xl"
                 textAlign="center"
@@ -200,7 +186,6 @@ const Menu = () => {
                 bg="#FFF"
                 height="50px"
                 padding="1"
-                // pt="5"
                 fontSize="3xl"
                 textAlign="center"
                 onClick={() => navigate(`/sandwich/${id}`)}
@@ -218,7 +203,6 @@ const Menu = () => {
                 bg="#FFF"
                 height="50px"
                 padding="1"
-                // pt="5"
                 fontSize="3xl"
                 onClick={() => navigate(`/drinks/${id}`)}
                 textAlign="center"
@@ -229,7 +213,6 @@ const Menu = () => {
               >
                 DRINKS
               </Box>
-              
             </SimpleGrid>{" "}
           </SimpleGrid>
           <SimpleGrid padding="3rem" columns={2} spacing={10}>

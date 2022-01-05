@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useParams, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 import axios from "axios";
 import {
   ChakraProvider,
@@ -8,12 +8,9 @@ import {
   Text,
   VStack,
   theme,
-  Icon,
   Input,
   Button,
-  Link,
   Image,
-  HStack,
   SimpleGrid,
 } from "@chakra-ui/react";
 
@@ -21,10 +18,10 @@ const BASE_URL = process.env.REACT_APP_BASE_URL;
 const Profile = () => {
   const [user, setUser] = useState("");
   const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
+
   const [avatar, setAvatar] = useState("");
   const [flag, setFlag] = useState(false);
-  const BASE_URL = process.env.REACT_APP_BASE_URL;
+
   const state = useSelector((state) => {
     return state;
   });
@@ -32,7 +29,6 @@ const Profile = () => {
   const id = localStorage.getItem("id");
   useEffect(() => {
     result();
-    console.log(id);
   }, []);
   const result = async () => {
     await axios
@@ -41,7 +37,6 @@ const Profile = () => {
       })
       .then((result) => {
         setUser(result.data);
-        console.log(result.data);
       });
   };
   const updateUser = async () => {
@@ -63,7 +58,7 @@ const Profile = () => {
   return (
     <ChakraProvider theme={theme}>
       <SimpleGrid bg="#F3F1DE">
-        <VStack >
+        <VStack>
           <Box bg="#F3F1DE" h="60%" w="60%">
             {user.length &&
               user.map((e) => (
@@ -131,7 +126,13 @@ const Profile = () => {
                       >
                         Edit Profile
                       </Button>
-                      <Box bg="rgb(248,248,248)"  mt="5" mb='5' borderRadius="8px" p='5'>
+                      <Box
+                        bg="rgb(248,248,248)"
+                        mt="5"
+                        mb="5"
+                        borderRadius="8px"
+                        p="5"
+                      >
                         <Text as="strong" mt="3" fontSize="1.3rem">
                           Cart
                         </Text>

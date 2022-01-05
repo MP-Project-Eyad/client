@@ -3,19 +3,16 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router";
 import "./style.css";
 import { useSelector, useDispatch } from "react-redux";
-// import { Logoutt } from "../../reducers/Login";
+
 import { ChakraProvider, HStack } from "@chakra-ui/react";
 import {
   Box,
   Text,
-  Link,
   VStack,
   Button,
   Image,
   Input,
   SimpleGrid,
-  Grid,
-  GridItem,
 } from "@chakra-ui/react";
 import Cart from "../Cart";
 import Swal from "sweetalert2";
@@ -30,12 +27,11 @@ const Sandwich = () => {
   const [number3, setNumber3] = useState(0);
 
   const { id } = useParams();
-  // console.log(id,"resturant");
+
   const navigate = useNavigate();
 
   const [local, setLocal] = useState("");
 
-  // console.log(state.Login.token);
   const state = useSelector((state) => {
     return state;
   });
@@ -56,8 +52,6 @@ const Sandwich = () => {
       const result = await axios.get(`${BASE_URL}/item/${id}`);
       //  resturantId = result.data.map((item,i) => item.RestaurantName._id )
       setMenu(result.data.filter((item, i) => item.Category === "COMBO"));
-
-      console.log(result.data);
     } catch (error) {
       console.log(error);
     }
@@ -65,7 +59,6 @@ const Sandwich = () => {
 
   const onAdd = async (productId) => {
     if (local) {
-      console.log(productId);
       await axios.post(
         `${BASE_URL}/cart`,
         {
@@ -77,7 +70,7 @@ const Sandwich = () => {
           },
         }
       );
-      setNumber3(number3+1)
+      setNumber3(number3 + 1);
     } else {
       MySwal.fire({
         icon: "error",
@@ -257,9 +250,6 @@ const Sandwich = () => {
             </VStack>
           </SimpleGrid>
         </Box>
-        {/* <div className="logoutDiv">
-      <button  id="btnLogout"onClick={logOut}>logout</button>
-</div> */}
       </div>
     </ChakraProvider>
   );

@@ -3,26 +3,22 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router";
 import "./style.css";
 import { useSelector, useDispatch } from "react-redux";
-// import { Logoutt } from "../../reducers/Login";
+
 import { ChakraProvider, HStack } from "@chakra-ui/react";
 import {
   Box,
   Text,
-  Link,
+
   VStack,
   Button,
   Image,
   Input,
   SimpleGrid,
-  Grid,
-  GridItem,
+ 
 } from "@chakra-ui/react";
 import Cart from "../Cart";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-
-
-
 
 const MySwal = withReactContent(Swal);
 
@@ -30,16 +26,16 @@ const BASE_URL = process.env.REACT_APP_BASE_URL;
 const Combo = () => {
   const [menu, setMenu] = useState([]);
   const [searchField, setSearchField] = useState("");
-  const [aleart, setAleart] = useState(false);
+ 
   const [number2, setNumber2] = useState(0);
   const [searchShow, setSearchShow] = useState(false);
   const { id } = useParams();
-  // console.log(id,"resturant");
+ 
   const navigate = useNavigate();
 
   const [local, setLocal] = useState("");
 
-  // console.log(state.Login.token);
+  
   const state = useSelector((state) => {
     return state;
   });
@@ -60,7 +56,7 @@ const Combo = () => {
       //  resturantId = result.data.map((item,i) => item.RestaurantName._id )
       setMenu(result.data.filter((item, i) => item.Category === "SANDWICH"));
 
-      console.log(result.data);
+     
     } catch (error) {
       console.log(error);
     }
@@ -89,7 +85,7 @@ const Combo = () => {
         })
       );
 
-      console.log(result.data);
+     
     } catch (error) {
       console.log(error);
     }
@@ -97,7 +93,7 @@ const Combo = () => {
 
   const onAdd = async (productId) => {
     if (local) {
-      console.log(productId);
+      
       await axios.post(
         `${BASE_URL}/cart`,
         {
@@ -109,9 +105,8 @@ const Combo = () => {
           },
         }
       );
-      setNumber2(number2+1);
+      setNumber2(number2 + 1);
       // setAleart(true)
-      
     } else {
       MySwal.fire({
         icon: "error",
@@ -220,7 +215,6 @@ const Combo = () => {
               >
                 DRINKS
               </Box>
-             
             </SimpleGrid>{" "}
           </SimpleGrid>
           <SimpleGrid padding="3rem" columns={2} spacing={10}>
@@ -289,7 +283,7 @@ const Combo = () => {
                 rounded="md"
                 bg="white"
               >
-                <Cart  number2={number2}/>
+                <Cart number2={number2} />
               </Box>
             </VStack>
           </SimpleGrid>
