@@ -235,7 +235,6 @@ const Menu = () => {
                         p="6"
                         rounded="md"
                         bg="white"
-                       
                       >
                         <Text fontSize={["3xl","4xl","5xl"]} display="block" as="strong">
                           {item.Name}
