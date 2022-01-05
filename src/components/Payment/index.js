@@ -3,7 +3,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 
 import CheckoutForm from "./CheckoutForm";
-import { useParams } from "react-router-dom";
+
 
 export const stripePromise = loadStripe(
   "pk_test_51KDoaoKS7J2XInRQ839y2DemHVcgjR7M0OOORKWFl4oiJXomPssVUMfzK6NcHbpawLwpwXNIEt9TmLnYIzfEknYD00KTFLCdMh"
@@ -14,7 +14,7 @@ const Payment = () => {
 
   const [clientSecret, setClientSecret] = useState("");
 
-  const [secret, setSecret] = useState("");
+ 
 
   useEffect(() => {
     fetch(`${process.env.REACT_APP_BASE_URL}/create-payment-intent`, {

@@ -52,6 +52,7 @@ const Navbar = () => {
     } else {
       setVisible(false);
     }
+    // eslint-disable-next-line
   }, [state]);
 
   return (
@@ -59,7 +60,7 @@ const Navbar = () => {
       <Nav>
         <NavLogo to="/">
           <div className="imgLogo">
-            <img src="/foodhub.png"></img>
+            <img src="/foodhub.png" alt="logo"></img>
           </div>
         </NavLogo>
         <Bars />

@@ -16,7 +16,7 @@ const Account = () => {
   const verifyAccount = async () => {
     if (code.length > 0) {
       try {
-        const res = await axios.post(`${BASE_URL}/verify_account`, {
+        await axios.post(`${BASE_URL}/verify_account`, {
           id,
           code,
         });

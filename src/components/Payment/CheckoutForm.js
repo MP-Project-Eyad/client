@@ -5,11 +5,11 @@ import {
   useElements,
 } from "@stripe/react-stripe-js";
 import "./style.css";
-import withReactContent from "sweetalert2-react-content";
+// import withReactContent from "sweetalert2-react-content";
 import Swal from "sweetalert2";
 
 
-const MySwal = withReactContent(Swal);
+// const MySwal = withReactContent(Swal);
 
 export default function CheckoutForm( ) {
   const stripe = useStripe();

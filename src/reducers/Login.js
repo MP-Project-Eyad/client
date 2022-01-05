@@ -10,7 +10,7 @@ const Login = (state = initialState, action) => {
 
   switch (type) {
     case "LOGIN":
-      const { role, token, email, id } = payload;
+      const { role, token, id } = payload;
       localStorage.setItem("token", token);
       localStorage.setItem("role", role);
       localStorage.setItem("id", id);

@@ -24,7 +24,7 @@ const Signup = () => {
   const signup = async () => {
     try {
       setMessage("");
-      const res = await axios.post(`${BASE_URL}/signUp`, {
+     await axios.post(`${BASE_URL}/signUp`, {
         userName: username,
         email: email,
         password: password,
