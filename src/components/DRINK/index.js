@@ -2,9 +2,9 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router";
 import "./style.css";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
-import { ChakraProvider, HStack } from "@chakra-ui/react";
+import { ChakraProvider } from "@chakra-ui/react";
 import {
   Box,
   Text,
@@ -40,16 +40,17 @@ const Drinks = () => {
     setLocal(item);
   };
   useEffect(() => {
-    const getToken = localStorage.getItem("token");
+    // const getToken = localStorage.getItem("token");
     getLocalStorage();
     getMenu(id);
+     // eslint-disable-next-line
   }, []);
 
   const getMenu = async (id) => {
     try {
       const result = await axios.get(`${BASE_URL}/item/${id}`);
 
-      setMenu(result.data.filter((item, i) => item.Category == "DRINKS"));
+      setMenu(result.data.filter((item, i) => item.Category === "DRINKS"));
     } catch (error) {
       console.log(error);
     }

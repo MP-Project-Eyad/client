@@ -29,6 +29,7 @@ const Profile = () => {
   const id = localStorage.getItem("id");
   useEffect(() => {
     result();
+    // eslint-disable-next-line
   }, []);
   const result = async () => {
     await axios
@@ -65,17 +66,17 @@ const Profile = () => {
                 <Box
                   mt="100"
                   mb="250"
-                  pt="20"
+                  pt="9"
                   bg="white"
                   border="solid gray 2px"
                   w="100"
                 >
                   <VStack>
                     <Image
-                      w="60px"
+                      w="90px"
                       mt="4"
                       borderRadius="full"
-                      src="http://norapc.org/wp-content/uploads/2015/07/avatar-blank.png"
+                      src={e.avatar}
                     />
                     <Text>{e.userName}</Text>
                     <Text>{e.email}</Text>
@@ -83,6 +84,7 @@ const Profile = () => {
                       <>
                         <Input
                           required
+                          defaultValue={e.userName}
                           w="100"
                           textAlign="center"
                           mt="5"
@@ -94,6 +96,7 @@ const Profile = () => {
                         <br />
                         <Input
                           required
+                          defaultValue={e.avatar}
                           mt="6"
                           w="100"
                           textAlign="center"

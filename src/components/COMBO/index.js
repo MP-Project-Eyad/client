@@ -2,9 +2,9 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router";
 import "./style.css";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
-import { ChakraProvider, HStack } from "@chakra-ui/react";
+import { ChakraProvider } from "@chakra-ui/react";
 import {
   Box,
   Text,
@@ -23,7 +23,7 @@ const MySwal = withReactContent(Swal);
 
 const Sandwich = () => {
   const [menu, setMenu] = useState([]);
-  const [cart, setCart] = useState([]);
+ 
   const [number3, setNumber3] = useState(0);
 
   const { id } = useParams();
@@ -42,15 +42,16 @@ const Sandwich = () => {
   };
 
   useEffect(() => {
-    const getToken = localStorage.getItem("token");
+    // const getToken = localStorage.getItem("token");
     getLocalStorage();
     getMenu(id);
+     // eslint-disable-next-line
   }, []);
 
   const getMenu = async (id) => {
     try {
       const result = await axios.get(`${BASE_URL}/item/${id}`);
-      //  resturantId = result.data.map((item,i) => item.RestaurantName._id )
+     
       setMenu(result.data.filter((item, i) => item.Category === "COMBO"));
     } catch (error) {
       console.log(error);
