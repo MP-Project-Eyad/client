@@ -2,9 +2,9 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router";
 import "./style.css";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
-import { ChakraProvider, HStack } from "@chakra-ui/react";
+import { ChakraProvider } from "@chakra-ui/react";
 import {
   Box,
   Text,
@@ -45,15 +45,16 @@ const Combo = () => {
     setLocal(item);
   };
   useEffect(() => {
-    const getToken = localStorage.getItem("token");
+    // const getToken = localStorage.getItem("token");
     getLocalStorage();
     getMenu(id);
+    // eslint-disable-next-line 
   }, []);
 
   const getMenu = async (id) => {
     try {
       const result = await axios.get(`${BASE_URL}/item/${id}`);
-      //  resturantId = result.data.map((item,i) => item.RestaurantName._id )
+      
       setMenu(result.data.filter((item, i) => item.Category === "SANDWICH"));
 
      
@@ -66,6 +67,7 @@ const Combo = () => {
     setSearchField(e.target.value);
     if (e.target.value === "") {
       setSearchShow(false);
+      console.log(searchShow);
       getMenu(id);
     } else {
       setSearchShow(true);
@@ -119,7 +121,7 @@ const Combo = () => {
 
   return (
     <ChakraProvider>
-      {/* { aleart && <Alert message="Success Tips" type="success" showIcon />} */}
+     
       <div className="restWrapper">
         <Box>
           <VStack>
@@ -141,17 +143,18 @@ const Combo = () => {
             spacing={10}
             boxShadow="lg"
           >
-            <SimpleGrid columns={4} spacing={10}>
+            <SimpleGrid columns={[1,2,3,4]} spacing={10}>
               <Box
                 boxShadow="base"
                 p="6"
                 rounded="md"
                 bg="#FFF"
+                ml="1"
                 height="50px"
                 padding="1"
                 // pt="5"
                 onClick={() => navigate(`/item/${id}`)}
-                fontSize="3xl"
+                fontSize={["1xl","2xl","3xl"]}
                 textAlign="center"
                 _hover={{
                   boxShadow: "outline",
@@ -164,13 +167,13 @@ const Combo = () => {
                 boxShadow="base"
                 p="6"
                 rounded="md"
-                ml="2"
+                ml="1"
                 onClick={() => navigate(`/combo/${id}`)}
                 bg="#FFF"
                 height="50px"
                 padding="1"
                 // pt="5"
-                fontSize="3xl"
+                fontSize={["1xl","2xl","3xl"]}
                 textAlign="center"
                 _hover={{
                   boxShadow: "outline",
@@ -186,8 +189,8 @@ const Combo = () => {
                 bg="#FFF"
                 height="50px"
                 padding="1"
-                // pt="5"
-                fontSize="3xl"
+                ml="1"
+                fontSize={["1xl","2xl","3xl"]}
                 onClick={() => navigate(`/sandwich/${id}`)}
                 textAlign="center"
                 _hover={{
@@ -204,8 +207,8 @@ const Combo = () => {
                 bg="#FFF"
                 height="50px"
                 padding="1"
-                // pt="5"
-                fontSize="3xl"
+                ml="1"
+                fontSize={["1xl","2xl","3xl"]}
                 onClick={() => navigate(`/drinks/${id}`)}
                 textAlign="center"
                 _hover={{
@@ -217,9 +220,9 @@ const Combo = () => {
               </Box>
             </SimpleGrid>{" "}
           </SimpleGrid>
-          <SimpleGrid padding="3rem" columns={2} spacing={10}>
+          <SimpleGrid padding="3rem" columns={[1,2]} spacing={10}>
             <Box>
-              <SimpleGrid padding="3rem" columns={1} spacing={10}>
+              <SimpleGrid padding="1rem" columns={1} spacing={10}>
                 {menu.length &&
                   menu.map((item, i) => (
                     <>
@@ -230,7 +233,7 @@ const Combo = () => {
                         rounded="md"
                         bg="white"
                       >
-                        <Text fontSize="5xl" display="block" as="strong">
+                        <Text fontSize={["3xl","4xl","5xl"]} display="block" as="strong">
                           {item.Name}
                         </Text>
                         <Text fontSize="1rem" width="50%">

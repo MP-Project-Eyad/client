@@ -58,6 +58,7 @@ ul {
 @media screen and (max-width: 375px) {
   .restWrapper {
     display: flex;
-    width: 100%;
+    flex-direction: column;
+    /* width: 100%; */
   }
 }

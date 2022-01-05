@@ -208,3 +208,15 @@ main.panel #signupButton {
     box-shadow: none;
   }
 }
+
+
+@media (max-width: 414px) {
+  .signUpDiv {
+    margin-left: 0px;
+    border-top: 2px solid black;
+  }
+  .gotosignUp {
+    margin-left:0px;
+    margin-right: 1000px;
+  }
+}

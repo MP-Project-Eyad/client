@@ -8,11 +8,11 @@ import {
   Text,
   Link,
   VStack,
-  Button,
+  ChakraProvider,
   Image,
-  Input,
+ 
   SimpleGrid,
-  HStack,
+  
 } from "@chakra-ui/react";
 import "./style.css";
 
@@ -24,6 +24,7 @@ const RestOffer = ({ resturant }) => {
 
   useEffect(() => {
     getOffers();
+    // eslint-disable-next-line 
   }, []);
   const goToOffers = () => {
     navigate(`/item/${resturant.resturant._id}`);
@@ -70,10 +71,11 @@ const RestOffer = ({ resturant }) => {
 
 export default function Offer(resturant) {
   return (
-    <SimpleGrid padding="3rem" columns={3} spacing={10}>
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
+    <ChakraProvider>
+    <SimpleGrid padding="3rem" columns={1} spacing={10}>
+      <div className="flip-card">
+        <div className="flip-card-inner">
+          <div className="flip-card-front">
             <VStack>
               <h1 key={`desc-${resturant.resturant._id}`}>
                 {resturant.resturant.Name}
@@ -92,5 +94,6 @@ export default function Offer(resturant) {
         </div>
       </div>
     </SimpleGrid>
+    </ChakraProvider>
   );
 }

@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 
 import "./style.css";
-import { useSelector, useDispatch } from "react-redux";
+// import { useSelector } from "react-redux";
 
 import { ChakraProvider } from "@chakra-ui/react";
 import {
@@ -27,21 +27,24 @@ const Restaurant = () => {
   
 
   
-  const state = useSelector((state) => {
-    return state;
-  });
+  // const state = useSelector((state) => {
+  //   return state;
+  // });
  
 
   useEffect(() => {
     const getToken = localStorage.getItem("token");
     setLocal(getToken);
     getRestaurants();
+    // eslint-disable-next-line 
   }, []);
 
   const handleChange = (e) => {
     setSearchField(e.target.value);
     if (e.target.value === "") {
       setSearchShow(false);
+      console.log(searchShow);
+      console.log(local);
       getRestaurants();
     } else {
       setSearchShow(true);
@@ -96,11 +99,11 @@ const Restaurant = () => {
           />
         </VStack>
         <Box>
-          <SimpleGrid padding="2rem" columns={3} spacing={10}>
+          <SimpleGrid padding="auto" columns={[1,2,3]} spacing={10}>
             {restaurants.map((item, i) => (
-              <>
-                <Offer resturant={item} key={i} />
-              </>
+              <div key={i}>
+                <Offer resturant={item}  />
+              </div>
             ))}
           </SimpleGrid>
         </Box>

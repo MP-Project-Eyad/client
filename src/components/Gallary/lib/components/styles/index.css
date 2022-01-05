@@ -216,3 +216,27 @@
     bottom: 25px;
   }
 }
+
+@media only screen and (max-width: 414px) {
+  .prev,
+  .next,
+  .carousel-caption-bottom,
+  .carousel-caption-center,
+  .carousel-caption-top,
+  .slide-number {
+    font-size: 20px !important;
+  }
+  .dot {
+    height: 4px;
+    width: px;
+  }
+  .carousel-container {
+    max-height: 250px !important;
+  }
+  .thumbnail {
+    max-width: 30px;
+  }
+  .carousel-caption-bottom {
+    bottom: 25px;
+  }
+}

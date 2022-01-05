@@ -104,17 +104,17 @@ const Sandwich = () => {
             spacing={10}
             boxShadow="lg"
           >
-            <SimpleGrid columns={4} spacing={10}>
+            <SimpleGrid columns={[1,2,3,4]} spacing={10}>
               <Box
                 boxShadow="base"
-                p="6"
+           
                 rounded="md"
                 bg="#FFF"
                 height="50px"
                 padding="1"
-                // pt="5"
+                ml="1"
                 onClick={() => navigate(`/item/${id}`)}
-                fontSize="3xl"
+                fontSize={["1xl","2xl","3xl"]}
                 textAlign="center"
                 _hover={{
                   boxShadow: "outline",
@@ -125,15 +125,15 @@ const Sandwich = () => {
               </Box>
               <Box
                 boxShadow="base"
-                p="6"
+                
                 rounded="md"
-                ml="2"
+           
                 onClick={() => navigate(`/combo/${id}`)}
                 bg="#FFF"
                 height="50px"
                 padding="1"
-                // pt="5"
-                fontSize="3xl"
+                ml="1"
+                fontSize={["1xl","2xl","3xl"]}
                 textAlign="center"
                 _hover={{
                   boxShadow: "outline",
@@ -144,13 +144,13 @@ const Sandwich = () => {
               </Box>
               <Box
                 boxShadow="base"
-                p="6"
+            
                 rounded="md"
                 bg="#FFF"
                 height="50px"
                 padding="1"
-                // pt="5"
-                fontSize="3xl"
+                ml="1"
+                fontSize={["1xl","2xl","3xl"]}
                 textAlign="center"
                 onClick={() => navigate(`/sandwich/${id}`)}
                 _hover={{
@@ -162,14 +162,14 @@ const Sandwich = () => {
               </Box>
               <Box
                 boxShadow="base"
-                p="6"
+         
                 rounded="md"
                 bg="#FFF"
                 height="50px"
                 padding="1"
                 onClick={() => navigate(`/drinks/${id}`)}
-                // pt="5"
-                fontSize="3xl"
+                ml="1"
+                fontSize={["1xl","2xl","3xl"]}
                 textAlign="center"
                 _hover={{
                   boxShadow: "outline",
@@ -180,20 +180,20 @@ const Sandwich = () => {
               </Box>
             </SimpleGrid>{" "}
           </SimpleGrid>
-          <SimpleGrid padding="3rem" columns={2} spacing={10}>
+          <SimpleGrid padding="3rem" columns={[1,2]} spacing={10}>
             <Box>
-              <SimpleGrid padding="3rem" columns={1} spacing={10}>
+              <SimpleGrid padding="1rem" columns={1} spacing={10}>
                 {menu.length &&
                   menu.map((item, i) => (
                     <>
                       <Box
                         padding="3"
                         boxShadow="dark-lg"
-                        p="6"
+                       
                         rounded="md"
                         bg="white"
                       >
-                        <Text fontSize="5xl" display="block" as="strong">
+                        <Text fontSize={["3xl","4xl","5xl"]} display="block" as="strong">
                           {item.Name}
                         </Text>
                         <Text fontSize="1rem" width="50%">
@@ -242,7 +242,7 @@ const Sandwich = () => {
                 w="400px"
                 mt="7%"
                 boxShadow="dark-lg"
-                p="6"
+               
                 rounded="md"
                 bg="white"
               >
