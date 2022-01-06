@@ -39,12 +39,12 @@ export const Bars = styled(FaBars)`
   display: none;
   color: #fff;
   @media screen and (max-width: 768px) {
-    display: block;
+    // display: block;
     position: absolute;
     top: 0;
     right: 0;
     transform: translate(-100%, 75%);
-    font-size: 1.8rem;
+    font-size: 1rem;
     cursor: pointer;
   }
 `;
@@ -55,7 +55,8 @@ export const NavMenu = styled.div`
   
 
   @media screen and (max-width: 768px) {
-    display: none;
+    // display: none;
+    font-size: 0.7rem;
   }
 `;
 
@@ -65,8 +66,8 @@ export const NavBtn = styled.nav`
   margin-right: 24px;
 
   @media screen and (max-width: 768px) {
-    display: none;
-
+    // display: none;
+    font-size: 0.5rem;
   
   }
 `;
