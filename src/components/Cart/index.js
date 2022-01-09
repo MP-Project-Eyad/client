@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import axios from "axios";
-import { Box, Text, Button, HStack ,CircularProgress} from "@chakra-ui/react";
+import { Box, Text, Button, HStack } from "@chakra-ui/react";
 import { AddIcon, MinusIcon } from "@chakra-ui/icons";
 import { useSelector } from "react-redux";
 

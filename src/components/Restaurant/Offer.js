@@ -6,13 +6,10 @@ import { useNavigate } from "react-router";
 import {
   Box,
   Text,
-  Link,
   VStack,
   ChakraProvider,
   Image,
- 
   SimpleGrid,
-  
 } from "@chakra-ui/react";
 import "./style.css";
 
@@ -52,7 +49,7 @@ const RestOffer = ({ resturant }) => {
       setOffer(result.data);
       localStorage.removeItem('offerId')
       localStorage.setItem("offerId", JSON.stringify(result.data));
-      console.log(result.data);
+      console.log(offer);
     } catch (error) {
       console.log(error);
     }
@@ -61,11 +58,14 @@ const RestOffer = ({ resturant }) => {
   return (
     <>
       {offers.map((element, i) => (
-        <Link
+        <Text
           onClick={goToOffers}
           borderRadius="5"
-          w="20%"
+          w="100%"
+          cursor="pointer"
           textAlign="center"
+          textStyle="none"
+          textDecoration="none"
           key={`Box-${i}`}
         >
           <SimpleGrid padding="1rem" columns={1} spacing={10}>
@@ -75,7 +75,9 @@ const RestOffer = ({ resturant }) => {
            }}
               key={`Box-${i}`}
               boxShadow="dark-lg"
-              _hover={{ boxShadow: "outline" }}
+              _hover={{ boxShadow: "outline" ,
+              textStyle:"none",
+              textDecoration:"none"}}
             >
               <Text key={`T1-${i}`} display="block">
                 {element.CompanyOffer.Name}
@@ -85,7 +87,7 @@ const RestOffer = ({ resturant }) => {
               </Text>
             </Box>
           </SimpleGrid>
-        </Link>
+        </Text>
       ))}
     </>
   );
