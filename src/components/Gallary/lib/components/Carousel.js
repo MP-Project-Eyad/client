@@ -197,7 +197,7 @@ function Carousel({
 
             {showNavBtn && (
               <a
-             href="www.googl.com"
+            
                 className="prev"
                 onClick={(e) => {
                   addSlide(-1);
@@ -209,7 +209,7 @@ function Carousel({
             )}
             {showNavBtn && (
               <a
-              href="www.googl.com"
+              
                 className="next"
                 onClick={(e) => {
                   addSlide(1);
