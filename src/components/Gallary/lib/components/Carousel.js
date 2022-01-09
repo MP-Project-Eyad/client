@@ -209,7 +209,6 @@ function Carousel({
             )}
             {showNavBtn && (
               <a
-              
                 className="next"
                 onClick={(e) => {
                   addSlide(1);
