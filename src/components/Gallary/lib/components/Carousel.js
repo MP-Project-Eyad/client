@@ -196,7 +196,7 @@ function Carousel({
             })}
 
             {showNavBtn && (
-              <a
+              <p
             
                 className="prev"
                 onClick={(e) => {
@@ -205,10 +205,10 @@ function Carousel({
                 }}
               >
                 &#10094;
-              </a>
+              </p>
             )}
             {showNavBtn && (
-              <a
+              <p
                 className="next"
                 onClick={(e) => {
                   addSlide(1);
@@ -216,7 +216,7 @@ function Carousel({
                 }}
               >
                 &#10095;
-              </a>
+              </p>
             )}
             {dots && (
               <div className="dots">
