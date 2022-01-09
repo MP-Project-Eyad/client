@@ -7,7 +7,7 @@ import "./style.css";
 import { ChakraProvider } from "@chakra-ui/react";
 import {
   Box,
-  
+  CircularProgress,
   VStack,
  
   Input,
@@ -100,11 +100,11 @@ const Restaurant = () => {
         </VStack>
         <Box>
           <SimpleGrid padding="auto" columns={[1,2,3]} spacing={10}>
-            {restaurants.map((item, i) => (
+            {restaurants.length ?(restaurants.map((item, i) => (
               <div key={i}>
                 <Offer resturant={item}  />
               </div>
-            ))}
+            ))):(<CircularProgress ml={["70px","100px","150px","200px"]} size="150px" isIndeterminate color='#E7815C' />)}
           </SimpleGrid>
         </Box>
        

@@ -12,6 +12,7 @@ import {
   Button,
   Image,
   Input,
+  CircularProgress,
   SimpleGrid,
 } from "@chakra-ui/react";
 import Cart from "../Cart";
@@ -181,7 +182,7 @@ const Drinks = () => {
           <SimpleGrid padding="3rem" columns={[1,2]} spacing={10}>
             <Box>
               <SimpleGrid padding="1rem" columns={1} spacing={10}>
-                {menu.length &&
+                {menu.length ?(
                   menu.map((item, i) => (
                     <>
                       <Box
@@ -228,7 +229,7 @@ const Drinks = () => {
                         </Button>
                       </Box>
                     </>
-                  ))}
+                 ) )):(<CircularProgress ml={["70px","100px","150px","200px"]} size="150px" isIndeterminate color='#E7815C' />)}
               </SimpleGrid>
             </Box>
             <VStack>

@@ -13,6 +13,7 @@ import {
   Image,
   Input,
   SimpleGrid,
+  CircularProgress
 } from "@chakra-ui/react";
 import Cart from "../Cart";
 import Swal from "sweetalert2";
@@ -178,8 +179,7 @@ const Sandwich = () => {
           <SimpleGrid padding="3rem" columns={[1, 2]} spacing={10}>
             <Box>
               <SimpleGrid padding="1rem" columns={1} spacing={10}>
-                {menu.length &&
-                  menu.map((item, i) => (
+                {menu.length  ? ( menu.map((item, i) => (
                     <>
                       <Box
                         padding="3"
@@ -228,7 +228,9 @@ const Sandwich = () => {
                         </Button>
                       </Box>
                     </>
-                  ))}
+                 ))) : (
+                  <CircularProgress ml={["70px","100px","150px","200px"]} size="150px" isIndeterminate color='#E7815C' />)
+                 }
               </SimpleGrid>
             </Box>
             <VStack>
