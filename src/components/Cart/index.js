@@ -9,10 +9,18 @@ import { useSelector } from "react-redux";
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 export default function Cart({ number, number1, number2, number3 }) {
   const [cart, setCart] = useState([]);
+  const [local, setLocal] = useState("");
+
+  const getLocalStorage = () => {
+    const item = JSON.parse(localStorage.getItem("offerId"));
+    setLocal(item);
+
+  }
+
   const navigate = useNavigate();
   const itemsPrice = cart.reduce((a, c) => a + c.quantity * c.itemId.price, 0);
   const taxPrice = itemsPrice * 0.05;
-  const shippingPrice = itemsPrice > 2000 ? 0 : 20;
+  const shippingPrice = local.DeliveryPrice;
   const totalPrice = itemsPrice + taxPrice + shippingPrice;
 
   const state = useSelector((state) => {
@@ -22,10 +30,12 @@ export default function Cart({ number, number1, number2, number3 }) {
   });
   useEffect(() => {
     getCart();
+    getLocalStorage();
     // eslint-disable-next-line
   }, []);
   useEffect(() => {
     getCart();
+    getLocalStorage();
     // eslint-disable-next-line
   }, [number, number1, number2, number3]);
 

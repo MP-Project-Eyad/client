@@ -20,10 +20,13 @@ const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 const RestOffer = ({ resturant }) => {
   const [offers, setOffers] = useState([]);
+  const [offer, setOffer] = useState([]);
+  // const [offerId, setOfferId] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
     getOffers();
+   
     // eslint-disable-next-line 
   }, []);
   const goToOffers = () => {
@@ -39,6 +42,22 @@ const RestOffer = ({ resturant }) => {
       console.log(error);
     }
   };
+  
+
+  const getOfferId = async (oId) => {
+    try {
+      const result = await axios.get(
+        `${BASE_URL}/getOfferid/${oId}`
+      );
+      setOffer(result.data);
+      localStorage.removeItem('offerId')
+      localStorage.setItem("offerId", JSON.stringify(result.data));
+      console.log(result.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  
   return (
     <>
       {offers.map((element, i) => (
@@ -51,6 +70,9 @@ const RestOffer = ({ resturant }) => {
         >
           <SimpleGrid padding="1rem" columns={1} spacing={10}>
             <Box
+           onClick={()=>{
+            getOfferId(element._id)
+           }}
               key={`Box-${i}`}
               boxShadow="dark-lg"
               _hover={{ boxShadow: "outline" }}
@@ -70,6 +92,7 @@ const RestOffer = ({ resturant }) => {
 };
 
 export default function Offer(resturant) {
+ 
   return (
     <ChakraProvider>
     <SimpleGrid padding="3rem" columns={1} spacing={10}>

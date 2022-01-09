@@ -23,7 +23,7 @@ const MySwal = withReactContent(Swal);
 
 const Sandwich = () => {
   const [menu, setMenu] = useState([]);
- 
+
   const [number3, setNumber3] = useState(0);
 
   const { id } = useParams();
@@ -45,13 +45,13 @@ const Sandwich = () => {
     // const getToken = localStorage.getItem("token");
     getLocalStorage();
     getMenu(id);
-     // eslint-disable-next-line
+    // eslint-disable-next-line
   }, []);
 
   const getMenu = async (id) => {
     try {
       const result = await axios.get(`${BASE_URL}/item/${id}`);
-     
+
       setMenu(result.data.filter((item, i) => item.Category === "COMBO"));
     } catch (error) {
       console.log(error);
@@ -104,17 +104,16 @@ const Sandwich = () => {
             spacing={10}
             boxShadow="lg"
           >
-            <SimpleGrid columns={[1,2,3,4]} spacing={10}>
+            <SimpleGrid columns={[1, 2, 3, 4]} spacing={10}>
               <Box
                 boxShadow="base"
-           
                 rounded="md"
                 bg="#FFF"
                 height="50px"
                 padding="1"
                 ml="1"
                 onClick={() => navigate(`/item/${id}`)}
-                fontSize={["1xl","2xl","3xl"]}
+                fontSize={["1xl", "2xl", "3xl"]}
                 textAlign="center"
                 _hover={{
                   boxShadow: "outline",
@@ -125,15 +124,13 @@ const Sandwich = () => {
               </Box>
               <Box
                 boxShadow="base"
-                
                 rounded="md"
-           
                 onClick={() => navigate(`/combo/${id}`)}
                 bg="#FFF"
                 height="50px"
                 padding="1"
                 ml="1"
-                fontSize={["1xl","2xl","3xl"]}
+                fontSize={["1xl", "2xl", "3xl"]}
                 textAlign="center"
                 _hover={{
                   boxShadow: "outline",
@@ -144,13 +141,12 @@ const Sandwich = () => {
               </Box>
               <Box
                 boxShadow="base"
-            
                 rounded="md"
                 bg="#FFF"
                 height="50px"
                 padding="1"
                 ml="1"
-                fontSize={["1xl","2xl","3xl"]}
+                fontSize={["1xl", "2xl", "3xl"]}
                 textAlign="center"
                 onClick={() => navigate(`/sandwich/${id}`)}
                 _hover={{
@@ -162,14 +158,13 @@ const Sandwich = () => {
               </Box>
               <Box
                 boxShadow="base"
-         
                 rounded="md"
                 bg="#FFF"
                 height="50px"
                 padding="1"
                 onClick={() => navigate(`/drinks/${id}`)}
                 ml="1"
-                fontSize={["1xl","2xl","3xl"]}
+                fontSize={["1xl", "2xl", "3xl"]}
                 textAlign="center"
                 _hover={{
                   boxShadow: "outline",
@@ -180,7 +175,7 @@ const Sandwich = () => {
               </Box>
             </SimpleGrid>{" "}
           </SimpleGrid>
-          <SimpleGrid padding="3rem" columns={[1,2]} spacing={10}>
+          <SimpleGrid padding="3rem" columns={[1, 2]} spacing={10}>
             <Box>
               <SimpleGrid padding="1rem" columns={1} spacing={10}>
                 {menu.length &&
@@ -189,11 +184,14 @@ const Sandwich = () => {
                       <Box
                         padding="3"
                         boxShadow="dark-lg"
-                       
                         rounded="md"
                         bg="white"
                       >
-                        <Text fontSize={["3xl","4xl","5xl"]} display="block" as="strong">
+                        <Text
+                          fontSize={["3xl", "4xl", "5xl"]}
+                          display="block"
+                          as="strong"
+                        >
                           {item.Name}
                         </Text>
                         <Text fontSize="1rem" width="50%">
@@ -242,7 +240,6 @@ const Sandwich = () => {
                 w="400px"
                 mt="7%"
                 boxShadow="dark-lg"
-               
                 rounded="md"
                 bg="white"
               >
