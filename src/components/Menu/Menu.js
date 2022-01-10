@@ -285,7 +285,7 @@ const Menu = () => {
                 top="2%"
                 padding="3"
                 w="400px"
-                mt="7%"
+                mt="3%"
                 boxShadow="dark-lg"
                 p="6"
                 rounded="md"
