@@ -9,7 +9,6 @@ import {
   Box,
   CircularProgress,
   VStack,
- 
   Input,
   SimpleGrid,
 } from "@chakra-ui/react";
@@ -27,16 +26,14 @@ const Restaurant = () => {
   
 
   
-  // const state = useSelector((state) => {
-  //   return state;
-  // });
+ 
  
 
   useEffect(() => {
     const getToken = localStorage.getItem("token");
     setLocal(getToken);
     getRestaurants();
-    // eslint-disable-next-line 
+    // eslint-disable-next-line
   }, []);
 
   const handleChange = (e) => {
