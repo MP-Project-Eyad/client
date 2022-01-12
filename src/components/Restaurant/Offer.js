@@ -23,7 +23,7 @@ const RestOffer = ({ resturant }) => {
 
   useEffect(() => {
     getOffers();
-   
+    getOfferId()
     // eslint-disable-next-line 
   }, []);
   const goToOffers = () => {
