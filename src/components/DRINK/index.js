@@ -180,7 +180,7 @@ const Drinks = () => {
             </SimpleGrid>{" "}
           </SimpleGrid>
           <SimpleGrid padding="3rem" columns={[1,2]} spacing={10}>
-            <Box>
+            <Box h="100vh">
               <SimpleGrid padding="1rem" columns={1} spacing={10}>
                 {menu.length ?(
                   menu.map((item, i) => (

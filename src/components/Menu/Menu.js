@@ -224,7 +224,7 @@ const Menu = () => {
             </SimpleGrid>{" "}
           </SimpleGrid>
           <SimpleGrid padding="3rem" columns={[1,2]} spacing={10}>
-            <Box>
+            <Box >
               <SimpleGrid padding="1rem" columns={1} spacing={10}>
                 {menu.length ?(
                   menu.map((item, i) => (

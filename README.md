@@ -103,4 +103,8 @@ Each restaurant has own category.
 
 4. Link to Server => https://github.com/MP-Project-Eyad/server
 
-5. Link to website => https://foodhub-zeta.vercel.app/
+5. Link to website => 
+
+- https://foodhub9.herokuapp.com/
+- https://hungry-shockley-19c4b3.netlify.app/
+- https://foodhub-zeta.vercel.app/  

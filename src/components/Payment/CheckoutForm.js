@@ -52,13 +52,13 @@ export default function CheckoutForm( ) {
   const handleSubmit = async (e) => {
     e.preventDefault();
    
-      Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'payment successfully ',
-        showConfirmButton: false,
-        timer: 6500
-      })
+      // Swal.fire({
+      //   position: 'center',
+      //   icon: 'success',
+      //   title: 'payment successfully ',
+      //   showConfirmButton: false,
+      //   timer: 6500
+      // })
     
     if (!stripe || !elements) {
       return;
